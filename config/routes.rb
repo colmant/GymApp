@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+#   devise_for :users
+#     resources :user, :only => [:index, :show, :new, :create] #unsure what our resource will be named, gym is a place holder
+#     root :to => "user#index"
 end
