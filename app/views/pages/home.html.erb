@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <div>
-    <body>
+  <body>
+    <div class="container">
       <h1> Current Occupancy # </h1>
       <h2> Position in Queue # </h2>
-      <h3> 
-      <%= link_to "Join Queue", pages_home_path %>
-      </h3>
-      <h4> 
-      <%= link_to "Sign in", pages_home_path %>
-      </h4>
-    </body>
-  </div>
+      <button type="button" class="btn-dark btn-lg"> <%= link_to "Join Queue", pages_home_path %> </button>
+      <button type="button" class="btn-dark btn-lg"> <%= link_to "Admin Sign In", pages_home_path %> </button>
+    </div>
+  </body>
 </html>
