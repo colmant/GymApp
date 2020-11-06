@@ -11,5 +11,15 @@
 
   <body>
     <%= yield %>
+      <% if flash[:notice] %>
+    <div class="alert alert-primary"> 
+    <%= "#{flash[:notice]}" %> </div> 
+    <% end %>
+    <% if flash[:alert] %> 
+      <div class="alert alert-warning"> <%= "#{flash[:alert]}" %> 
+    </div> 
+    <% end %>
   </body>
+  
+
 </html>
