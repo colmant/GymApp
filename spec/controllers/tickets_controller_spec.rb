@@ -26,12 +26,12 @@ RSpec.describe TicketsController, type: :controller do
     end
   
     context "create new ticket" do
-        it "should redirect to index on success" do
+        it "should redirect to homepage on success" do
             t = Ticket.new()
             expect(Ticket).to receive(:new) { t }
             expect(t).to receive(:save) { true }
             post :create, params: { :ticket => { :name => "dummy", :email => "jesse@colgate.edu" } }
-            expect(response).to redirect_to(tickets_path)
+            expect(response).to redirect_to("/")
         end
     
         it "should redirect to new on failure" do

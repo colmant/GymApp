@@ -11,7 +11,7 @@ class TicketsController < ApplicationController
         @ticket = Ticket.new(ticket_params)
         if @ticket.save
             flash[:notice] = "New ticket for #{@ticket.name} created"
-            redirect_to tickets_path and return
+            redirect_to "/" and return
         else
             flash[:alert] = "Failed to save new ticket"
             redirect_to new_ticket_path and return
