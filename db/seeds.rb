@@ -9,10 +9,10 @@ User.delete_all
 
 User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "colgate13")
 
-Tickets.delete_all
+Ticket.delete_all
 tlist = []
 
-tlist << Tickets.create!(name: "Shelby", email: "stheisen@colgate.edu")
-tlist << Tickets.create!(name: "Jesse", email: "jjacob@colgate.edu")
-tlist << Tickets.create!(name: "Mickey", email: "msacks@colgate.edu")
+tlist << Ticket.create!(name: "Shelby", email: "stheisen@colgate.edu")
+tlist << Ticket.create!(name: "Jesse", email: "jjacob@colgate.edu")
+tlist << Ticket.create!(name: "Mickey", email: "msacks@colgate.edu")
 
