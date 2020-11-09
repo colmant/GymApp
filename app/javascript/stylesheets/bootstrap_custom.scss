@@ -35,3 +35,90 @@
 @import '~bootstrap/scss/_tooltip.scss';
 @import '~bootstrap/scss/_transitions.scss';
 @import '~bootstrap/scss/_utilities.scss';
+
+
+.navbar-custom { 
+        background-color: maroon; 
+    } 
+
+*{
+  font-family: 'Marcellus SC', serif;
+  font-weight: 200;
+  margin: 0;
+  padding:  0;
+  text-align: center;
+}
+
+html{
+  background: url(http://qhquf2.assets-01.cdndrive.com/wp-content/uploads/2013/06/Magic-The-Gathering-Art-White.jpg);
+  /*box-shadow: inset 0px -5px 1px #234d8e, 6px 7px 3px rgba(66, 66, 66, 0.5);*/
+}
+
+#container{
+  width: 100%;
+  margin: 0% auto;
+}
+
+#player1{
+  background-color: rgba(0,0,0,0.8);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  width: 65%;
+  height: 300px;
+  margin: 0 auto;
+}
+#player1 h1,
+#player2 h1{
+  font-size: 60px;
+  color: white;
+  line-height: 100px;
+}
+
+#player2{
+  background-color: rgba(0,0,0,0.4);
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  width: 65%;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.scoreblock {
+  background-color: rgba(0,0,0,0);
+  border-radius: 15px;
+  color: white;
+  position: relative;
+  float: left;
+  font-size: 100px;
+  line-height: 150px;
+  list-style: none;
+  left: 15%;
+  margin: 0 10px;
+  width: 20%;
+  height: 150px;
+  
+}
+
+header {
+  background-color: #4385ef;
+  padding: 10px 90px 15px 90px;
+  border-radius: 15px;
+  color: white;
+  width: 613px;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 2em;
+  /*
+  box-shadow: inset 0px -5px 1px #234d8e, 6px 7px 3px rgba(66, 66, 66, 0.5);
+  */
+ 
+  & h1 {
+    font-family: rubik;
+    font-weight: 800;
+    user-select: none;
+    /*
+    text-shadow: 2px 2px 2px;
+    */
+   
+  }
+}
