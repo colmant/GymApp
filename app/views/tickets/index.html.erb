@@ -6,16 +6,16 @@
   <table class="table">
     <thead class="thead-light">
       <tr class="products_header">
-        <th>name</th>
-        <th>email</th>
-        <th>time</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Time</th>
       </tr>
     </thead>
     <tbody>
       <% @tickets.each do |p| %>
         <tr class="product">
           <td class="productname">
-            <%= link_to "#{p.name}", ticket_path(p) %>
+            <%= p.name %>
           </td>
           <td class="productname">
             <%= p.email %>
