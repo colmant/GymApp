@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>GymApp</title>
+    <%= csrf_meta_tags %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -18,7 +19,11 @@
             <a class="nav-link" href="/tickets/new">Get On Queue </a>
           </li>
           <li class="nav-item">
-            <%= link_to "Admin Sign-in", new_user_session_path, :class => "nav-link" %>
+            <% if user_signed_in? %>
+              <%= link_to "Admin Logout", destroy_user_session_path, method: :delete, :class => "nav-link" %>
+            <% else %>
+              <%= link_to "Admin Sign-in", new_user_session_path, :class => "nav-link" %>
+            <% end %>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Trudy Trends </a>
