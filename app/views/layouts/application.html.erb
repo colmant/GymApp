@@ -2,14 +2,21 @@
 <html>
   <head>
     <title>GymApp</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <%= yield %>
+      <% if flash[:notice] %>
+    <div class="alert alert-primary"> 
+    <%= "#{flash[:notice]}" %> </div> 
+    <% end %>
+    <% if flash[:alert] %> 
+      <div class="alert alert-warning"> <%= "#{flash[:alert]}" %> 
+    </div> 
+    <% end %>
   </body>
+  
+
 </html>
