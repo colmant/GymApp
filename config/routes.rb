@@ -3,7 +3,13 @@ Rails.application.routes.draw do
     #get "pages/home"
     root :to => "pages#home"
   
+  get "pages/show", to: "pages#show"
+  
+  
+  get "new_user_session_path", to: "pages#show"
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :tickets
+  resources :tickets 
+  
   #root 'tickets#index'
 end
