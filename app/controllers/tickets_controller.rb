@@ -1,5 +1,6 @@
 class TicketsController < ApplicationController
     before_action :user_signed_in?, only:[:new, :create]
+    
     def index
         @tickets = Ticket.order(:created_at)
     end
@@ -11,7 +12,6 @@ class TicketsController < ApplicationController
     def create
         @ticket = Ticket.new(ticket_params)
         @ticket.user = current_user
-        
         if @ticket.save
             flash[:notice] = "New ticket for #{@ticket.name} created"
             redirect_to "/" and return
@@ -21,9 +21,11 @@ class TicketsController < ApplicationController
         end
     end
     
+    
     private
   
     def ticket_params
         params.require(:ticket).permit(:name, :email)
     end
+    
 end

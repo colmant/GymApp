@@ -9,6 +9,7 @@
     <th>Position</th>
     <th>Name</th>
     <th>Email</th>
+    <th>Floor</th>
     <th>Time</th>
     <th>UserID</th>
   </tr>
@@ -23,7 +24,10 @@
         <%= p.name %>
       </td>
       <td class="productname">
-        <%= p.email %>
+        <%= p.user.email %>
+      </td>
+      <td class="productname">
+        <%= p.floor %>
       </td>
       <td class="productprice">
         <%= p.created_at %>
