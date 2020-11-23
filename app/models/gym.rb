@@ -1,6 +1,8 @@
 class Gym < ApplicationRecord
-
     
+    def get_top
+        return self.top_floor_occupancy
+    end
     def add_top_floor
         self.top_floor_occupancy += 1 if self.top_floor_occupancy < 25
         self.wait_top_floor += 1 if self.top_floor_occupancy >= 25

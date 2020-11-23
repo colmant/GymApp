@@ -17,4 +17,5 @@ tlist << Ticket.create!(name: "Shelby", email: "stheisen@colgate.edu")
 tlist << Ticket.create!(name: "Jesse", email: "jjacob@colgate.edu")
 tlist << Ticket.create!(name: "Mickey", email: "msacks@colgate.edu")
 
-Gym.create!(top_floor_occupancy: 0, bottom_floor_occupancy: 0, top_floor_capacity: 25, bottom_floor_capacity: 20, wait_top_floor: 0, wait_bottom_floor: 0)
+Gym.delete_all
+Gym.create!(:name => "Trudy", :top_floor_occupancy => 0, :bottom_floor_occupancy => 0, :top_floor_capacity => 25, :bottom_floor_capacity => 20, :wait_top_floor => 0, :wait_bottom_floor => 0)

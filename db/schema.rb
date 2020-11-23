@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_18_214925) do
+ActiveRecord::Schema.define(version: 2020_11_23_205910) do
 
   create_table "gyms", force: :cascade do |t|
     t.integer "top_floor_occupancy"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_11_18_214925) do
     t.integer "wait_bottom_floor"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
   create_table "tickets", force: :cascade do |t|
