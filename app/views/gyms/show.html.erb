@@ -1,0 +1,36 @@
+<body>
+<header>
+    <h1 class="text-center">Trudy Fitness Center Current Capacity by Floor</h1>
+</header>
+
+<div id = "container">
+  <div id = "player1">
+    <div id="p1score">
+      <h1>Top Floor</h1>
+      <ul>
+        <li class="scoreblock" >
+          <%= @gym.top_floor_occupancy %>
+        </li>
+        <li id="p120" class="scoreblock" value=20>/</li>
+        <li class="scoreblock" >
+            <%= @gym.top_floor_capacity %>
+            </li>
+      </ul>
+    </div>
+  </div>
+  <div id = "player2">
+    <div id="p2score">
+      <h1>Bottom Floor</h1>
+      <ul>
+        <li class="scoreblock" >
+          <%= @gym.bottom_floor_occupancy %>
+        </li>
+        <li id="p120" class="scoreblock" value=20>/</li>
+        <li class="scoreblock" >
+            <%= @gym.bottom_floor_capacity %>
+            </li>
+      </ul>
+    </div>
+  </div>
+  
+</body>
