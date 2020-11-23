@@ -21,11 +21,17 @@ class TicketsController < ApplicationController
         end
     end
     
+    def destroy
+        
+        @ticket = Ticket.find(params[:id])
+        @ticket.destroy
+        redirect_to tickets_path and return
+    end
     
     private
   
     def ticket_params
-        params.require(:ticket).permit(:name, :email)
+        params.require(:ticket).permit(:name, :floor)
     end
     
 end
