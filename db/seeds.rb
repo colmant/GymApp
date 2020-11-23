@@ -7,12 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.delete_all
 
-User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "colgate13")
+userlist = []
+userlist << User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "colgate13")
+userlist << User.create!(:email => "stheisen@colgate.edu", :password => "shelby")
+userlist << User.create!(:email => "jjacob@colgate.edu", :password => "jessej")
+userlist << User.create!(:email => "msacks@colgate.edu", :password => "mickey")
 
 Ticket.delete_all
-tlist = []
 
-tlist << Ticket.create!(name: "Shelby", email: "stheisen@colgate.edu")
-tlist << Ticket.create!(name: "Jesse", email: "jjacob@colgate.edu")
-tlist << Ticket.create!(name: "Mickey", email: "msacks@colgate.edu")
-
+ticketlist = []
+ticketlist << Ticket.create!(:name => "Shelby Theisen", :floor => "top", :user => userlist[1])
+ticketlist << Ticket.create!(:name => "Jesse Jacob", :floor => "bottom", :user => userlist[2])
+ticketlist << Ticket.create!(:name => "Mickey Sacks", :floor => "top", :user => userlist[3])

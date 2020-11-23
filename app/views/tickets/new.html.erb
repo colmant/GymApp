@@ -1,10 +1,19 @@
-<%= form_with model: @ticket, local: true do |f| %>
-    <h1>Create New Ticket</h1>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <br >
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-    <br >
-    <%= f.submit "Create new Ticket" %>
+<% if Ticket.find_by(user: current_user).nil? %>
+    <%= form_with model: @ticket, local: true do |f| %>
+        <h1>Create New Ticket</h1>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <br >
+        <%= f.label :floor %>
+        <%= f.select :floor, [['Top','top'],['Bottom','bottom']] %>
+        <br >
+        <%= f.submit "Create new Ticket" %>
+    <% end %>
+<% else %>
+    <h1>
+        You have already submitted a ticket for the queue.
+    </h1>
+    <h2>
+        <%= "Your current position in the queue is: #{Ticket.find_by(user: current_user).id}" %>
+    </h2>
 <% end %>
