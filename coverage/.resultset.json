@@ -48,6 +48,22 @@
           null,
           null,
           null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
           null
         ]
       },
@@ -113,6 +129,10 @@
           1,
           null,
           null,
+          1,
+          null,
+          null,
+          1,
           1,
           null,
           null,
@@ -239,7 +259,8 @@
           null,
           null,
           null,
-          null
+          null,
+          1
         ]
       },
       "/home/ubuntu/environment/project/GymApp/config/initializers/backtrace_silencers.rb": {
@@ -665,11 +686,29 @@
           null
         ]
       },
-      "/home/ubuntu/environment/project/GymApp/config/routes.rb": {
+      "/home/ubuntu/environment/project/GymApp/spec/factories/tickets.rb": {
         "lines": [
           1,
           1,
           1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/ubuntu/environment/project/GymApp/config/routes.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           1,
           null,
           1,
@@ -680,10 +719,13 @@
       "/home/ubuntu/environment/project/GymApp/app/models/user.rb": {
         "lines": [
           1,
+          1,
           null,
           null,
           1,
           null,
+          null,
+          1,
           null
         ]
       },
@@ -709,15 +751,19 @@
       "/home/ubuntu/environment/project/GymApp/app/controllers/tickets_controller.rb": {
         "lines": [
           1,
+          null,
+          1,
+          null,
+          1,
+          2,
+          null,
+          null,
           1,
           2,
           null,
           null,
           1,
           2,
-          null,
-          null,
-          1,
           2,
           2,
           1,
@@ -729,9 +775,22 @@
           null,
           null,
           1,
+          2,
+          2,
+          2,
+          2,
+          null,
+          null,
+          1,
           null,
           1,
           2,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           null
         ]
@@ -761,7 +820,7 @@
           null
         ]
       },
-      "/home/ubuntu/environment/project/GymApp/spec/models/ticket_spec.rb": {
+      "/home/ubuntu/environment/project/GymApp/spec/models/gym_spec.rb": {
         "lines": [
           1,
           null,
@@ -770,8 +829,64 @@
           null
         ]
       },
+      "/home/ubuntu/environment/project/GymApp/app/models/gym.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          0,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/ubuntu/environment/project/GymApp/spec/models/ticket_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
       "/home/ubuntu/environment/project/GymApp/app/models/ticket.rb": {
         "lines": [
+          1,
           1,
           null
         ]
@@ -782,6 +897,9 @@
           null,
           1,
           1,
+          1,
+          1,
+          null,
           null
         ]
       },
@@ -795,6 +913,6 @@
         ]
       }
     },
-    "timestamp": 1604955661
+    "timestamp": 1606244238
   }
 }

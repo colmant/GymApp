@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should have one ticket" do
+    u = User.reflect_on_association(:ticket)
+    expect(u.macro).to eq(:has_one)
+  end
 end

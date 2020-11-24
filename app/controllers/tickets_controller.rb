@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+    # rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
     before_action :user_signed_in?, only:[:new, :create]
     
     def index
@@ -22,16 +23,21 @@ class TicketsController < ApplicationController
     end
     
     def destroy
-        
         @ticket = Ticket.find(params[:id])
         @ticket.destroy
+        flash[:notice] = "#{@ticket.name} was admitted to the gym."
         redirect_to tickets_path and return
     end
     
     private
-  
+ 
     def ticket_params
         params.require(:ticket).permit(:name, :floor)
     end
+    
+    # def record_not_found
+    #     flash[:alert] = "No users in the queue!"
+    #     redirect_to tickets_path and return
+    # end
     
 end
