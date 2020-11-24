@@ -8,9 +8,9 @@
     <%= link_to('Admit new gym user', @tickets.first, method: :delete) %> 
   </button>
 <% end %>
-<table class="table">
+<table class="table" id="queue">
   <thead class="thead-light">
-    <tr class="products_header">
+    <tr>
       <th>Position</th>
       <th>Name</th>
       <th>Email</th>
@@ -21,23 +21,23 @@
   </thead>
   <tbody>
     <% @tickets.each do |p| %>
-      <tr class="product">
-        <td class="productname">
+      <tr>
+        <td>
           <%= p.id %>
         </td>
-        <td class="productname">
+        <td>
           <%= p.name %>
         </td>
-        <td class="productname">
+        <td>
           <%= p.user.email %>
         </td>
-        <td class="productname">
+        <td>
           <%= p.floor %>
         </td>
-        <td class="productprice">
+        <td>
           <%= p.created_at %>
         </td>
-        <td class="productprice">
+        <td>
           <%= p.user_id %>
         </td>
       </tr>

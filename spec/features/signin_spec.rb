@@ -18,8 +18,6 @@ feature "Signing in" do
     expect(page).to have_current_path('/')
   end
 
-#   given(:other_user) { User.make(email: 'other@example.com', password: 'rous') }
-
   scenario "as unknown user" do
     visit '/users/sign_in'
     within("#new_user") do
