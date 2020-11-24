@@ -1,8 +1,13 @@
 class Gym < ApplicationRecord
-    
-    def get_top
-        return self.top_floor_occupancy
+    has_many :tickets
+    validate :check_record, on: :create #please not that validate in this case is singular
+
+    def check_record
+        if Gym.all.count === 1
+          errors[:base] << "You can only have one gym"
+        end
     end
+    
     def add_top_floor
         self.top_floor_occupancy += 1 if self.top_floor_occupancy < 25
         self.wait_top_floor += 1 if self.top_floor_occupancy >= 25
@@ -13,12 +18,12 @@ class Gym < ApplicationRecord
     end
     
     def add_bottom_floor
-        self.top_bottom_occupancy += 1 if self.top_bottom_occupancy < 20
+        self.bottom_floor_occupancy += 1 if self.top_bottom_occupancy < 20
         self.wait_bottom_floor += 1 if self.bottom_floor_occupancy >= 20
     end
     
     def subtract_bottom_floor
-        self.top_bottom_occupancy -= 1 if self.top_bottom_occupancy >= 0
+        self.bottom_floor_occupancy -= 1 if self.bottom_floor_occupancy >= 0
     end
     
     def add_wait_top_floor

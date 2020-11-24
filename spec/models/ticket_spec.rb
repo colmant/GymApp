@@ -1,5 +1,7 @@
 require 'rails_helper'
-
 RSpec.describe Ticket, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should have one gym" do
+    t = Ticket.reflect_on_association(:gym)
+    expect(t.macro).to eq(:has_one)
+  end
 end
