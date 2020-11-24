@@ -31,6 +31,8 @@ feature "Creating a ticket" do
         click_link("Get On Queue")
         expect(page).to have_current_path(new_user_session_path)
     end
+    
+
 end
 
 
