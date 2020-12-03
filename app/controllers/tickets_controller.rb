@@ -1,5 +1,4 @@
 class TicketsController < ApplicationController
-    # rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
     before_action :user_signed_in?, only:[:new, :create]
     
     def index
@@ -7,7 +6,7 @@ class TicketsController < ApplicationController
     end
     
     def new 
-        @ticket = Ticket.new 
+        @ticket = Ticket.new
     end
   
     def create
@@ -17,7 +16,8 @@ class TicketsController < ApplicationController
             flash[:notice] = "New ticket for #{@ticket.name} created"
             redirect_to "/" and return
         else
-            flash[:alert] = "Failed to save new ticket"
+            errmsg = @ticket.errors.full_messages.join(", ")
+            flash[:alert] = "Error creating new ticket: #{errmsg}"
             redirect_to new_ticket_path and return
         end
     end
@@ -34,10 +34,5 @@ class TicketsController < ApplicationController
     def ticket_params
         params.require(:ticket).permit(:name, :floor)
     end
-    
-    # def record_not_found
-    #     flash[:alert] = "No users in the queue!"
-    #     redirect_to tickets_path and return
-    # end
     
 end
