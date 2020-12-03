@@ -32,6 +32,29 @@ feature "Creating a ticket" do
         expect(page).to have_current_path(new_user_session_path)
     end
     
+    scenario "when user is signed in and has not yet submitted a ticket, but does not enter a name" do
+        user = User.create!(:email => 'test2@example.com', :password => 'fakepw')
+        login_as(user, :scope => :user)
+        visit(new_ticket_path)
+        click_button 'Create new Ticket'
+        expect(page).to have_content 'Error creating new ticket: Name can\'t be blank, Name must include both first and last, separated by a space and properly capitalized'
+        expect(page).to have_current_path(new_ticket_path)
+    end
+    
+    scenario "when user is signed in and has not yet submitted a ticket, but enters an invalid name" do
+        user = User.create!(:email => 'test3@example.com', :password => 'fakepw2')
+        login_as(user, :scope => :user)
+        visit(new_ticket_path)
+        fill_in 'Name', with: 'joe j'
+        click_button 'Create new Ticket'
+        expect(page).to have_content 'Error creating new ticket: Name must include both first and last, separated by a space and properly capitalized'
+        expect(page).to have_current_path(new_ticket_path)
+        fill_in 'Name', with: 'joe'
+        click_button 'Create new Ticket'
+        expect(page).to have_content 'Error creating new ticket: Name must include both first and last, separated by a space and properly capitalized'
+        expect(page).to have_current_path(new_ticket_path)
+    end
+    
 
 end
 

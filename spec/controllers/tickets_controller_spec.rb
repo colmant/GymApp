@@ -46,7 +46,7 @@ RSpec.describe TicketsController, type: :controller do
     context "destroy" do
         it "deletes the ticket" do
             @user = User.create!(:email => "sth@colgate.edu", :password => "123456")
-            @ticket = Ticket.create!(:user => @user)
+            @ticket = Ticket.create!(:name => "Shelby Theisen", :user => @user)
             expect{
               delete :destroy, params: { id: @ticket.id }     
             }.to change(Ticket,:count).by(-1)
@@ -54,7 +54,7 @@ RSpec.describe TicketsController, type: :controller do
         
         it "renders the index template on success" do
             @user = User.create!(:email => "sth@colgate.edu", :password => "123456")
-            @ticket = Ticket.create!(:user => @user)
+            @ticket = Ticket.create!(:name => "Shelby Theisen", :user => @user)
             delete :destroy, params: { id: @ticket.id }
             expect(response).to redirect_to(tickets_path)
         end
