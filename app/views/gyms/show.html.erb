@@ -3,6 +3,13 @@
     <h1 class="text-center">Trudy Fitness Center Current Capacity by Floor</h1>
 </header>
 
+<div>
+  <h1><%= "Waiting for Top Floor: #{@gym.wait_top_floor}" %></h1>
+</div>
+<div>
+  <h1><%= "Waiting for Bottom Floor: #{@gym.wait_bottom_floor}" %></h1>
+</div>
+
 <div id = "container">
   <div id = "player1">
     <div id="p1score">
@@ -14,7 +21,7 @@
         <li id="p120" class="scoreblock" value=20>/</li>
         <li class="scoreblock" >
             <%= @gym.top_floor_capacity %>
-            </li>
+        </li>
       </ul>
     </div>
   </div>

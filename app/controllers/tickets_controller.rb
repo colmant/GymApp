@@ -12,8 +12,10 @@ class TicketsController < ApplicationController
     def create
         @ticket = Ticket.new(ticket_params)
         @ticket.user = current_user
+        @ticket.gym = Gym.find_by(name: "Trudy")
         if @ticket.save
             flash[:notice] = "New ticket for #{@ticket.name} created"
+            increase_wait(@ticket)
             redirect_to "/" and return
         else
             errmsg = @ticket.errors.full_messages.join(", ")
@@ -24,6 +26,8 @@ class TicketsController < ApplicationController
     
     def destroy
         @ticket = Ticket.find(params[:id])
+        increase_occupancy(@ticket)
+        decrease_wait(@ticket)
         @ticket.destroy
         flash[:notice] = "#{@ticket.name} was admitted to the gym."
         redirect_to tickets_path and return
@@ -33,6 +37,22 @@ class TicketsController < ApplicationController
  
     def ticket_params
         params.require(:ticket).permit(:name, :floor)
+    end
+    
+    def increase_wait(t)
+        t.floor == "top" ? t.gym.add_wait_top_floor() : t.gym.add_wait_bottom_floor()
+    end
+    
+    def decrease_wait(t)
+        t.floor == "top" ? t.gym.subtract_wait_top_floor() : t.gym.subtract_wait_bottom_floor()
+    end
+    
+    def increase_occupancy(t)
+        t.floor == "top" ? t.gym.add_top_floor() : t.gym.add_bottom_floor()
+    end
+    
+    def decrease_occupancy(t)
+        t.floor == "top" ? t.gym.subtract_top_floor() : t.gym.subtract_bottom_floor()
     end
     
 end
