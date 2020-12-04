@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2020_11_23_205910) do
 
   create_table "gyms", force: :cascade do |t|
@@ -20,18 +19,23 @@ ActiveRecord::Schema.define(version: 2020_11_23_205910) do
     t.integer "bottom_floor_capacity"
     t.integer "wait_top_floor"
     t.integer "wait_bottom_floor"
+    t.integer "ticket_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
+    t.index ["ticket_id"], name: "index_gyms_on_ticket_id"
   end
-
 
   create_table "tickets", force: :cascade do |t|
     t.string "name"
+    t.integer "gym_id"
+    t.integer "tickets_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.string "floor"
+    t.index ["gym_id"], name: "index_tickets_on_gym_id"
+    t.index ["tickets_id"], name: "index_tickets_on_tickets_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
@@ -48,5 +52,8 @@ ActiveRecord::Schema.define(version: 2020_11_23_205910) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "gyms", "tickets", on_delete: :cascade
+  add_foreign_key "tickets", "gyms"
+  add_foreign_key "tickets", "tickets", column: "tickets_id"
   add_foreign_key "tickets", "users"
 end

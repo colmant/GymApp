@@ -7,6 +7,7 @@ class CreateGyms < ActiveRecord::Migration[6.0]
       t.integer :bottom_floor_capacity
       t.integer :wait_top_floor
       t.integer :wait_bottom_floor
+      t.references :ticket, foreign_key: {on_delete: :cascade}
 
       t.timestamps
     end
