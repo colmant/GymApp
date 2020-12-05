@@ -8,6 +8,20 @@ class Gym < ApplicationRecord
         end
     end
     
+    def check_tickets
+        @gym = Gym.find_by(name: "Trudy")
+        tickets = @gym.tickets
+        
+        tickets.each do |t|
+            if t.not_present? == false
+                return t.get_position_for_user
+            end
+            
+        return false
+        end
+    end
+   
+    
     def add_top_floor
         self.top_floor_occupancy += 1 if self.top_floor_occupancy < 25
         #self.wait_top_floor += 1 if self.top_floor_occupancy >= 25

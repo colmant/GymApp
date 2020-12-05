@@ -1,5 +1,6 @@
 class Ticket < ApplicationRecord
     belongs_to :user
+    belongs_to :gym
     validates :name, presence: true, format: { with: /\A[A-Z][a-z]+\s[A-Z][a-z]+\z/, message: "must include both first and last, separated by a space and properly capitalized" }
     
     @@queue = Ticket.order(:created_at).to_a
