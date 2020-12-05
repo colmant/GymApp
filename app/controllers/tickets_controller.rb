@@ -16,6 +16,7 @@ class TicketsController < ApplicationController
         if @ticket.save
             flash[:notice] = "New ticket for #{@ticket.name} created"
             increase_wait(@ticket)
+            Ticket.queue << @ticket
             redirect_to "/" and return
         else
             errmsg = @ticket.errors.full_messages.join(", ")
@@ -28,6 +29,7 @@ class TicketsController < ApplicationController
         @ticket = Ticket.find(params[:id])
         increase_occupancy(@ticket)
         decrease_wait(@ticket)
+        Ticket.queue.delete(@ticket)
         @ticket.destroy
         flash[:notice] = "#{@ticket.name} was admitted to the gym."
         redirect_to tickets_path and return
