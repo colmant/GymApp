@@ -3,6 +3,7 @@ class TicketsController < ApplicationController
     
     def index
         @tickets = Ticket.order(:created_at)
+        @gym = Gym.find_by(name: "Trudy")
     end
     
     def new 
@@ -32,6 +33,7 @@ class TicketsController < ApplicationController
         flash[:notice] = "#{@ticket.name} was admitted to the gym."
         redirect_to tickets_path and return
     end
+
     
     private
  
