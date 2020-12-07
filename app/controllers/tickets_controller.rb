@@ -52,9 +52,5 @@ class TicketsController < ApplicationController
     def increase_occupancy(t)
         t.floor == "top" ? t.gym.add_top_floor() : t.gym.add_bottom_floor()
     end
-    
-    def decrease_occupancy(t)
-        t.floor == "top" ? t.gym.subtract_top_floor() : t.gym.subtract_bottom_floor()
-    end
-    
+
 end

@@ -14,11 +14,10 @@ class Gym < ApplicationRecord
         
         tickets.each do |t|
             if t.not_present? == false
-                return t.get_position_for_user
+                return t.get_position
             end
-            
-        return false
         end
+        return false
     end
    
     

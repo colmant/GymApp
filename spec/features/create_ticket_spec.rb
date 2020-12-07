@@ -20,9 +20,11 @@ feature "Creating a ticket" do
     scenario "when user is signed in but has already submitted a ticket" do
         user = User.create!(:email => 'test@example.com', :password => 'f4k3p455w0rd')
         login_as(user, :scope => :user)
-        Ticket.create!(:name => "Shelby Theisen", :floor => "Bottom", :user => user)
+        g = Gym.find_by(name: "Trudy")
+        t1 = Ticket.create!(:name => "Shelby Theisen", :floor => "Bottom", :user => user, :gym => g)
         visit(new_ticket_path)
         expect(page).to have_content 'You have already submitted a ticket for the queue.'
+        expect(page).to have_content 'Your current position in the queue is: ' + t1.get_position.to_s
         expect(page).to have_current_path(new_ticket_path)
     end
     
