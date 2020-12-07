@@ -8,4 +8,12 @@ class TrudyTrend < ApplicationRecord
             return TrudyTrend.order(:name)
         end
     end
+    
+    def get_average_queue_time
+        @trudy_trend = TrudyTrend.find_by(name: Date.today.strftime("%A")).average_queue_time
+    end
+    
+    def get_average_queue_size
+        @trudy_trend = TrudyTrend.find_by(name: Date.today.strftime("%A")).average_queue_size
+    end
 end
