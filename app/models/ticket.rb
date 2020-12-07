@@ -11,5 +11,5 @@ class Ticket < ApplicationRecord
         @ticket = Ticket.find_by(user: User.current).id
     end
 
-    has_one :gym
+    belongs_to :gym
 end

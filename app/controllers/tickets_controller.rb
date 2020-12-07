@@ -3,6 +3,7 @@ class TicketsController < ApplicationController
     
     def index
         @tickets = Ticket.order(:created_at)
+        @gym = Gym.find_by(name: "Trudy")
     end
     
     def new 
@@ -12,8 +13,10 @@ class TicketsController < ApplicationController
     def create
         @ticket = Ticket.new(ticket_params)
         @ticket.user = current_user
+        @ticket.gym = Gym.find_by(name: "Trudy")
         if @ticket.save
             flash[:notice] = "New ticket for #{@ticket.name} created"
+            increase_wait(@ticket)
             redirect_to "/" and return
         else
             flash[:alert] = "Failed to save new ticket"
@@ -21,11 +24,39 @@ class TicketsController < ApplicationController
         end
     end
     
+<<<<<<< HEAD
+=======
+    def destroy
+        @ticket = Ticket.find(params[:id])
+        increase_occupancy(@ticket)
+        decrease_wait(@ticket)
+        @ticket.destroy
+        flash[:notice] = "#{@ticket.name} was admitted to the gym."
+        redirect_to tickets_path and return
+    end
+
+>>>>>>> b5fc4fd8e20b01db97431ec5e9886162fa559d7e
     
     private
   
     def ticket_params
         params.require(:ticket).permit(:name, :email)
+    end
+    
+    def increase_wait(t)
+        t.floor == "top" ? t.gym.add_wait_top_floor() : t.gym.add_wait_bottom_floor()
+    end
+    
+    def decrease_wait(t)
+        t.floor == "top" ? t.gym.subtract_wait_top_floor() : t.gym.subtract_wait_bottom_floor()
+    end
+    
+    def increase_occupancy(t)
+        t.floor == "top" ? t.gym.add_top_floor() : t.gym.add_bottom_floor()
+    end
+    
+    def decrease_occupancy(t)
+        t.floor == "top" ? t.gym.subtract_top_floor() : t.gym.subtract_bottom_floor()
     end
     
 end

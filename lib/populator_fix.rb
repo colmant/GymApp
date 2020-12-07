@@ -8,4 +8,8 @@ module Populator
       end
     end
   end
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> b5fc4fd8e20b01db97431ec5e9886162fa559d7e

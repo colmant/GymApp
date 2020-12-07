@@ -120,13 +120,21 @@ GEM
     diff-lcs (1.4.4)
     docile (1.3.2)
     erubi (1.9.0)
+<<<<<<< HEAD
+    faker (2.15.1)
+      i18n (>= 1.6, < 2)
+=======
     factory_bot (6.1.0)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.1.0)
       factory_bot (~> 6.1.0)
       railties (>= 5.0.0)
+<<<<<<< HEAD
     faker (2.15.1)
       i18n (>= 1.6, < 2)
+=======
+>>>>>>> 88a2ea83c04967d95fd2c228e771a55d81a20e4d
+>>>>>>> b5fc4fd8e20b01db97431ec5e9886162fa559d7e
     ffi (1.13.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -297,8 +305,15 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   devise
-  factory_bot_rails
+<<<<<<< HEAD
   faker
+=======
+  factory_bot_rails
+<<<<<<< HEAD
+  faker
+=======
+>>>>>>> 88a2ea83c04967d95fd2c228e771a55d81a20e4d
+>>>>>>> b5fc4fd8e20b01db97431ec5e9886162fa559d7e
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg
