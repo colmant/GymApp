@@ -30,7 +30,7 @@ RSpec.describe TicketsController, type: :controller do
             t = Ticket.new()
             expect(Ticket).to receive(:new) { t }
             expect(t).to receive(:save) { true }
-            post :create, params: { :ticket => { :name => "dummy", :email => "jesse@colgate.edu" } }
+            post :create, params: { :ticket => { :name => "John Deer", :floor => "top" } }
             expect(response).to redirect_to("/")
         end
     
@@ -38,9 +38,25 @@ RSpec.describe TicketsController, type: :controller do
             t = Ticket.new()
             expect(Ticket).to receive(:new).and_return(t)
             expect(t).to receive(:save).and_return(nil)
-            post :create, params: { :ticket => { "name"=>"dummy", "email"=>"s@s.co" } }
+            post :create, params: { :ticket => { :name => "Jane Doe", :floor => "bottom" } }
             expect(response).to redirect_to(new_ticket_path)
         end
     end
-  
+    
+    context "destroy" do
+        it "deletes the ticket" do
+            @user = User.create!(:email => "sth@colgate.edu", :password => "123456")
+            @ticket = Ticket.create!(:name => "Shelby Theisen", :user => @user)
+            expect{
+              delete :destroy, params: { id: @ticket.id }     
+            }.to change(Ticket,:count).by(-1)
+        end
+        
+        it "renders the index template on success" do
+            @user = User.create!(:email => "sth@colgate.edu", :password => "123456")
+            @ticket = Ticket.create!(:name => "Shelby Theisen", :user => @user)
+            delete :destroy, params: { id: @ticket.id }
+            expect(response).to redirect_to(tickets_path)
+        end
+    end
 end

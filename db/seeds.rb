@@ -12,16 +12,18 @@ userlist << User.create!(:email => 'admin@colgate.edu', :admin => true, :passwor
 userlist << User.create!(:email => "stheisen@colgate.edu", :password => "shelby")
 userlist << User.create!(:email => "jjacob@colgate.edu", :password => "jessej")
 userlist << User.create!(:email => "msacks@colgate.edu", :password => "mickey")
-
-
-Ticket.delete_all
-ticketlist = []
-ticketlist << Ticket.create!(:name => "Shelby Theisen", :floor => "top", :user => userlist[1])
-ticketlist << Ticket.create!(:name => "Jesse Jacob", :floor => "bottom", :user => userlist[2])
-ticketlist << Ticket.create!(:name => "Mickey Sacks", :floor => "top", :user => userlist[3])
-
+userlist << User.create!(:email => "naustin@colgate.edu", :password => "nick666")
 
 Gym.delete_all
-Gym.create!(:name => "Trudy", :top_floor_occupancy => 0, :bottom_floor_occupancy => 0, :top_floor_capacity => 25, :bottom_floor_capacity => 20, :wait_top_floor => 0, :wait_bottom_floor => 0)
+Ticket.delete_all
+
+g = Gym.create!(:name => "Trudy", :top_floor_occupancy => 0, :bottom_floor_occupancy => 0, :top_floor_capacity => 25, :bottom_floor_capacity => 20, :wait_top_floor => 0, :wait_bottom_floor => 0)
+#y = Gym.create!(:name => "notTrudyS", :top_floor_occupancy => 0, :bottom_floor_occupancy => 0, :top_floor_capacity => 25, :bottom_floor_capacity => 20, :wait_top_floor => 0, :wait_bottom_floor => 0)
+g.tickets.create!(:name => "Shelby Theisen", :floor => "top", :user => userlist[1])
+g.tickets.create!(:name => "Jesse Jacob", :floor => "bottom", :user => userlist[2])
+g.tickets.create!(:name => "Mickey Sacks", :floor => "top", :user => userlist[3])
+#y.tickets.create!(:name => "Nick Austin", :floor => "top", :user => userlist[4])
+
+#ticketlist2 << Ticket.create!(:name => "Nick Austin", :floor => "bottom", :user => userlist[4],:gym => y)
 
 
