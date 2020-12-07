@@ -14,7 +14,7 @@ class TicketsController < ApplicationController
         @ticket.user = current_user
         @ticket.gym = Gym.find_by(name: "Trudy")
         if @ticket.save
-            flash[:notice] = "New ticket for #{@ticket.name} created"
+            flash[:notice] = "New ticket for #{@ticket.name} created for #{@ticket.floor} floor"
             increase_wait(@ticket)
             Ticket.queue << @ticket
             redirect_to "/" and return
@@ -31,7 +31,7 @@ class TicketsController < ApplicationController
         decrease_wait(@ticket)
         Ticket.queue.delete(@ticket)
         @ticket.destroy
-        flash[:notice] = "#{@ticket.name} was admitted to the gym."
+        flash[:notice] = "#{@ticket.name} was admitted to the #{@ticket.floor} floor of the gym."
         redirect_to tickets_path and return
     end
     
