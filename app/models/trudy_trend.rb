@@ -1,2 +1,3 @@
 class TrudyTrend < ApplicationRecord
+    
 end

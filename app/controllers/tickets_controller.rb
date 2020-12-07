@@ -6,7 +6,7 @@ class TicketsController < ApplicationController
     end
     
     def new 
-        @ticket = Ticket.new
+        @ticket = Ticket.new 
     end
   
     def create
@@ -16,23 +16,16 @@ class TicketsController < ApplicationController
             flash[:notice] = "New ticket for #{@ticket.name} created"
             redirect_to "/" and return
         else
-            errmsg = @ticket.errors.full_messages.join(", ")
-            flash[:alert] = "Error creating new ticket: #{errmsg}"
+            flash[:alert] = "Failed to save new ticket"
             redirect_to new_ticket_path and return
         end
     end
     
-    def destroy
-        @ticket = Ticket.find(params[:id])
-        @ticket.destroy
-        flash[:notice] = "#{@ticket.name} was admitted to the gym."
-        redirect_to tickets_path and return
-    end
     
     private
- 
+  
     def ticket_params
-        params.require(:ticket).permit(:name, :floor)
+        params.require(:ticket).permit(:name, :email)
     end
     
 end
