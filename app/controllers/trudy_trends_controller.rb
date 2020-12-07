@@ -1,0 +1,2 @@
+class TrudyTrendsController < ApplicationController
+end
