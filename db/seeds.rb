@@ -5,6 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#require 'faker'
+
+200.times do
+    TrudyTrend.create ([{
+        time: DateTime.current().change(day: rand(6)+1, hour: rand(8..22), min: rand(0..59))
+    }])
+end
 
 
 User.delete_all

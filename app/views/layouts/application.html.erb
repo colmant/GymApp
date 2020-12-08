@@ -29,8 +29,8 @@
           </li>
          
           <li class="nav-item">
-            <a class="nav-link" href="#">Trudy Trends </a>
-            <%= link_to "Trudy Trends", trends_by_days, :class => "nav-link" %>
+            
+            <%= link_to "Trudy Trends", trudy_trends_path, :class => "nav-link" %>
           </li>
           <li class="nav-item">
             <% if user_signed_in? && current_user.admin %>

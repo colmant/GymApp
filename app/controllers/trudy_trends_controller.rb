@@ -1,6 +1,7 @@
-require 'Date'
+
 class TrudyTrendsController < ApplicationController
     def index
+        @trudy_trends = TrudyTrend.all()
     end
 
     # def day_trend

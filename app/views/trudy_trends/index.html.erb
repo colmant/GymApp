@@ -1,2 +1,12 @@
 <h1>Trudy Trends</h1>
+<tbody>
+    <% @trudy_trends.each do |p| %>
+    <tr>
+        <td>
+          <%= p.time %>
+        </td>
+    </tr> 
+    <% end %>
+</tbody>
+        
 <%= column_chart charts_trends_by_days_path %>
