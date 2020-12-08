@@ -1,0 +1,2 @@
+class TrudyTrendsFloor < ApplicationRecord
+end
