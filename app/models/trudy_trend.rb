@@ -1,10 +1,10 @@
 class TrudyTrend < ApplicationRecord
 <<<<<<< HEAD
-def change 
-    create_table :times do |t|
-        t.timestamps
-    end 
-end
+    def change 
+        create_table :times do |t|
+            t.timestamps
+        end 
+    end
 =======
     def self.sorted_by(field) #need to add default sorting by current day/date?
         if TrudyTrend.column_names.include?(field.to_s) #Date.today.strftime("%A")
