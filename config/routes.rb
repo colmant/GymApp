@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :gyms
   #root 'tickets#index'
   namespace :charts do
-    get "trends-by-days"
+    get "trends-by-day"
   end
   # resources :charts, only: [] do
   #   collection do

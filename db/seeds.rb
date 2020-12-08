@@ -5,7 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+TrudyTrend.delete_all
+trendslisit =[]
 
+trendslisit << TrudyTrend.create!(:day_of_week => 'Monday', :average_queue_time => '60.63', :average_queue_size => '20')
+trendslisit << TrudyTrend.create!(:day_of_week => 'Tuesday', :average_queue_time => '120.63', :average_queue_size => '32')
+trendslisit << TrudyTrend.create!(:day_of_week => 'Wednesday', :average_queue_time => '40.63', :average_queue_size => '10')
+trendslisit << TrudyTrend.create!(:day_of_week => 'Thursday', :average_queue_time => '90.63', :average_queue_size => '5')
+trendslisit << TrudyTrend.create!(:day_of_week => 'Friday', :average_queue_time => '60.63', :average_queue_size => '20')
+trendslisit << TrudyTrend.create!(:day_of_week => 'Saturday', :average_queue_time => '20.63', :average_queue_size => '0')
 
 User.delete_all
 userlist = []
