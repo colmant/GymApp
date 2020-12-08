@@ -24,8 +24,7 @@ class TicketsController < ApplicationController
         end
     end
     
-<<<<<<< HEAD
-=======
+
     def destroy
         @ticket = Ticket.find(params[:id])
         increase_occupancy(@ticket)
@@ -35,7 +34,7 @@ class TicketsController < ApplicationController
         redirect_to tickets_path and return
     end
 
->>>>>>> b5fc4fd8e20b01db97431ec5e9886162fa559d7e
+
     
     private
   
