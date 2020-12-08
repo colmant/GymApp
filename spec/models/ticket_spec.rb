@@ -5,8 +5,8 @@ RSpec.describe Ticket, type: :model do
     expect(t.macro).to eq(:belongs_to)
   end
   
-  it "should have one gym" do
+  it "should belong to one gym" do
     t = Ticket.reflect_on_association(:gym)
-    expect(t.macro).to eq(:has_one)
+    expect(t.macro).to eq(:belongs_to)
   end
 end

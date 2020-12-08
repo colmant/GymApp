@@ -8,37 +8,58 @@ class Gym < ApplicationRecord
         end
     end
     
+    def check_tickets
+        @gym = Gym.find_by(name: "Trudy")
+        tickets = @gym.tickets
+        
+        tickets.each do |t|
+            if t.not_present? == false
+                return t.get_position
+            end
+        end
+        return false
+    end
+   
+    
     def add_top_floor
         self.top_floor_occupancy += 1 if self.top_floor_occupancy < 25
-        self.wait_top_floor += 1 if self.top_floor_occupancy >= 25
+        #self.wait_top_floor += 1 if self.top_floor_occupancy >= 25
+        self.save
     end
     
     def subtract_top_floor
         self.top_floor_occupancy -= 1 if self.top_floor_occupancy > 0
+        self.save
     end
     
     def add_bottom_floor
-        self.bottom_floor_occupancy += 1 if self.top_bottom_occupancy < 20
-        self.wait_bottom_floor += 1 if self.bottom_floor_occupancy >= 20
+        self.bottom_floor_occupancy += 1 if self.bottom_floor_occupancy < 20
+        #self.wait_bottom_floor += 1 if self.bottom_floor_occupancy >= 20
+        self.save
     end
     
     def subtract_bottom_floor
         self.bottom_floor_occupancy -= 1 if self.bottom_floor_occupancy >= 0
+        self.save
     end
     
     def add_wait_top_floor
         self.wait_top_floor += 1
+        self.save
     end
     
     def subtract_wait_top_floor
         self.wait_top_floor -= 1 if self.wait_top_floor > 0
+        self.save
     end
     
     def add_wait_bottom_floor
         self.wait_bottom_floor += 1
+        self.save
     end
     
     def subtract_wait_bottom_floor
-        self.wait_bottom_floor -= 1 if self.wait_top_floor > 0
+        self.wait_bottom_floor -= 1 if self.wait_bottom_floor > 0
+        self.save
     end
 end

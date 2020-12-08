@@ -17,28 +17,32 @@
       <th>Floor</th>
       <th>Time</th>
       <th>UserID</th>
+      <th>Gym</th>
     </tr>
   </thead>
   <tbody>
-    <% @tickets.each do |p| %>
+    <% @tickets.each do |t| %>
       <tr>
         <td>
-          <%= p.id %>
+          <%= t.get_position %>
         </td>
         <td>
-          <%= p.name %>
+          <%= t.name %>
         </td>
         <td>
-          <%= p.user.email %>
+          <%= t.user.email %>
         </td>
         <td>
-          <%= p.floor %>
+          <%= t.floor %>
         </td>
         <td>
-          <%= p.created_at %>
+          <%= t.created_at %>
         </td>
         <td>
-          <%= p.user_id %>
+          <%= t.user_id %>
+        </td>
+        <td>
+          <%= t.gym.id %>
         </td>
       </tr>
     <% end %>
