@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   resources :tickets
 
   resources :users
+  
+  resources :gyms
   #root 'tickets#index'
 end
