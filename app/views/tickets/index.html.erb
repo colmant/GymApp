@@ -1,12 +1,28 @@
 <div class="row">
     <div class="col-md">
-      <h3>Trudy Fitness queue</h3>
+      <h3>Trudy Fitness Queue</h3>
     </div>
 </div>
+
+
+<%= link_to("<button>Decrement Top Floor Occupancy</button>".html_safe, gym_path(:id => 1), method: :patch) %>
+<br>
+<%= link_to("<button>Decrement Bottom Floor Occupancy</button>".html_safe, gym_path(:id => 2), method: :patch) %>
+<br>
+<%= link_to("<button>Increment Top Floor Occupancy</button>".html_safe, gym_path(:id => 3), method: :patch) %>
+<br>
+<%= link_to("<button>Increment Bottom Floor Occupancy</button>".html_safe, gym_path(:id => 4), method: :patch) %>
+<br>
+<br>
+<p>
+  Current Top Floor Occupancy: <%= @gym.top_floor_occupancy %><br>
+  Current Botttom Floor Occupancy: <%= @gym.bottom_floor_occupancy %>
+</p>
+
 <% unless @tickets.first.nil? %>
-  <button>
-    <%= link_to('Admit new gym user', @tickets.first, method: :delete) %> 
-  </button>
+  
+    <%= link_to("<button>Admit new gym user</button>".html_safe, @tickets.first, method: :delete) %> 
+  
 <% end %>
 <table class="table" id="queue">
   <thead class="thead-light">
@@ -49,12 +65,3 @@
   </tbody>
 </table>
 
-<button>
-    
-    <%= link_to('Decrement Top Floor Capacity', gym_path(:id => 1), method: :patch) %> 
-</button>
-  
-<button>
-    
-    <%= link_to('Decrement Bottom Floor Capacity', gym_path(:id => 2), method: :patch) %> 
-</button>
