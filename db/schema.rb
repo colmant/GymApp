@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_205910) do
+ActiveRecord::Schema.define(version: 2020_12_07_223658) do
 
   create_table "gyms", force: :cascade do |t|
     t.integer "top_floor_occupancy"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 2020_11_23_205910) do
     t.index ["gym_id"], name: "index_tickets_on_gym_id"
     t.index ["tickets_id"], name: "index_tickets_on_tickets_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
+  end
+
+  create_table "trudy_trends", force: :cascade do |t|
+    t.string "day_of_week"
+    t.decimal "average_queue_time", precision: 10, scale: 2
+    t.integer "average_queue_size"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
