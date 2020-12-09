@@ -23,27 +23,12 @@ button {
  background-color: #CCCCCC;
  text-align: center;
  position: relative;
+ text-decoration: none;
 }
 
-button.plus{
- font-size: x-large;
- padding: 0.1em 0.725em;
-}
-
-button.min{
- font-size: x-large;
- padding: 0.1em 0.825em;
-}
-
-
-.plus:hover{
- border-color:#7a7a7a;
- background-color:#efeff5;
-}
-
-.min:hover{
- border-color:#7a7a7a;
- background-color:#efeff5;
+button a:link, .button a:visited, .button a:hover, .button a:active {
+ text-decoration: none;
+ color: black;
 }
 
 button:hover{
@@ -52,7 +37,6 @@ button:hover{
 }
 
 td.occupancy{
- 
  font-family:'Segoe UI','Roboto', sans-serif;
  font-weight: 400;
  font-size: large;
@@ -72,11 +56,5 @@ strong{
  border: 1px solid black;
  
 }
-
-#min2{
- font-size: x-large;
-}
-
-
 
 

@@ -11,12 +11,12 @@ class GymsController < ApplicationController
         @gym = Gym.find_by(name: "Trudy")
         if params[:id] == "1"
             if(@gym.top_floor_occupancy == 0)
-                flash[:alert] = "Top Floor is Empty Already"
+                flash[:alert] = "Top Floor is Already Empty"
             end
             @gym.subtract_top_floor()
         elsif params[:id] == "2"
             if(@gym.bottom_floor_occupancy == 0)
-                flash[:alert] = "Bottom Floor is Empty Already"
+                flash[:alert] = "Bottom Floor is Already Empty"
             end
             @gym.subtract_bottom_floor()
         elsif params[:id] == "3"
