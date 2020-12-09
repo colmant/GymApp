@@ -3,22 +3,22 @@
       <h3>Trudy Fitness Queue</h3>
     </div>
 </div>
-
-
-<%= link_to("<button>Decrement Top Floor Occupancy</button>".html_safe, gym_path(:id => 1), method: :patch) %>
-<br>
-<%= link_to("<button>Decrement Bottom Floor Occupancy</button>".html_safe, gym_path(:id => 2), method: :patch) %>
-<br>
-<%= link_to("<button>Increment Top Floor Occupancy</button>".html_safe, gym_path(:id => 3), method: :patch) %>
-<br>
-<%= link_to("<button>Increment Bottom Floor Occupancy</button>".html_safe, gym_path(:id => 4), method: :patch) %>
 <br>
 <br>
-<p>
-  Current Top Floor Occupancy: <%= @gym.top_floor_occupancy %><br>
-  Current Botttom Floor Occupancy: <%= @gym.bottom_floor_occupancy %>
-</p>
-
+<table>
+  <tr>
+    <td class="occupancy">Current Top Floor Occupancy:   <%= @gym.top_floor_occupancy %></td>
+    <td class="plus1"><%= link_to("<button class='plus1'> + </button>".html_safe, gym_path(:id => 1), method: :patch) %></td>
+    <td><%= link_to("<button class='min' id='min1'> - </button>".html_safe, gym_path(:id => 3), method: :patch) %></td>
+  </tr>
+  <tr>
+    <td class="occupancy">Current Bottom Floor Occupancy: <%= @gym.bottom_floor_occupancy %></td>
+    <td><%= link_to("<button class='plus' id='plus2'> + </button>".html_safe, gym_path(:id => 4), method: :patch) %></td>
+    <td><%= link_to("<button class='min' id='min2'> - </button>".html_safe, gym_path(:id => 4), method: :patch) %></td>
+  </tr>
+</table>
+<br>
+<br>
 <% unless @tickets.first.nil? %>
   
     <%= link_to("<button>Admit new gym user</button>".html_safe, @tickets.first, method: :delete) %> 
