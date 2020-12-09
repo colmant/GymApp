@@ -9,10 +9,11 @@ feature "When an admin is signed in," do
         admin = User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "colgate13")
         login_as(admin, :scope => :user)
         visit(tickets_path)
-        click_link "Decrement Bottom Floor Occupancy"
+        within("#min2") do
+            click_button(" - ")
+        end
+        visit(tickets_path)
         expect(page).to have_content("Current Bottom Floor Occupancy: 0")
-        visit('/')
-        expect(page).to have_content(0)
     end
   
   scenario "Someone leaves the top floor of the gym, and the admin clicks a button to decrement the top floor occupancy on the home page" do
@@ -20,10 +21,8 @@ feature "When an admin is signed in," do
         admin = User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "colgate13")
         login_as(admin, :scope => :user)
         visit(tickets_path)
-        click_link("Decrement Top Floor Occupancy")
+        find('#min1').click()
         expect(page).to have_content("Current Top Floor Occupancy: 0")
-        visit('/')
-        expect(page).to have_content(0)
     end
     
     scenario "Someone enters the bottom floor of the gym, and the admin clicks a button to increment the bottom floor occupancy on the home page" do
@@ -32,10 +31,8 @@ feature "When an admin is signed in," do
         admin = User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "colgate13")
         login_as(admin, :scope => :user)
         visit(tickets_path)
-        click_link "Increment Bottom Floor Occupancy"
+        find('#plus2').click()
         expect(page).to have_content("Current Bottom Floor Occupancy: 2")
-        visit('/')
-        expect(page).to have_content(2)
     end
     
     scenario "Someone enters the top floor of the gym, and the admin clicks a button to increment the top floor occupancy on the home page" do
@@ -44,10 +41,8 @@ feature "When an admin is signed in," do
         admin = User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "colgate13")
         login_as(admin, :scope => :user)
         visit(tickets_path)
-        click_link "Increment Top Floor Occupancy"
+        find('#plus1').click()
         expect(page).to have_content("Current Top Floor Occupancy: 1")
-        visit('/')
-        expect(page).to have_content(2)
     end
     
     scenario "Admin clicks a button to decrement the bottom floor occupancy on the home page but occupancy is already 0" do
@@ -56,11 +51,9 @@ feature "When an admin is signed in," do
         admin = User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "colgate13")
         login_as(admin, :scope => :user)
         visit(tickets_path)
-        click_link "Decrement Bottom Floor Occupancy"
+        find('#min2').click()
         expect(page).to have_content("Current Bottom Floor Occupancy: 0")
         expect(page).to have_content("Bottom Floor is Empty Already")
-        visit('/')
-        expect(page).to have_content(0)
     end
 
     scenario "Admin clicks a button to decrement the top floor occupancy on the home page but occupancy is already 0" do
@@ -72,8 +65,6 @@ feature "When an admin is signed in," do
         find('#min1').click()
         expect(page).to have_content("Current Top Floor Occupancy: 0")
         expect(page).to have_content("Top Floor is Empty Already")
-        visit('/')
-        expect(page).to have_content(0)
     end
     
     
@@ -83,7 +74,7 @@ feature "When an admin is signed in," do
         admin = User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "colgate13")
         login_as(admin, :scope => :user)
         visit(tickets_path)
-        click_link "Increment Top Floor Occupancy"
+        find('#plus1').click()
         expect(page).to have_content("Current Top Floor Occupancy: 25")
         expect(page).to have_content("Top Floor is at Capacity")
         visit('/')
@@ -96,7 +87,7 @@ feature "When an admin is signed in," do
         admin = User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "colgate13")
         login_as(admin, :scope => :user)
         visit(tickets_path)
-        click_link "Increment Bottom Floor Occupancy"
+        find('#plus2').click()
         expect(page).to have_content("Current Bottom Floor Occupancy: 20")
         expect(page).to have_content("Bottom Floor is at Capacity")
         visit('/')
