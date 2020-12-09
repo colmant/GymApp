@@ -38,8 +38,7 @@ feature "Signing in" do
     click_button 'Log in'
     expect(page).to have_content 'Signed in successfully.'
     expect(page).to have_current_path('/')
-    expect(page).to have_link("View Queue")
-    expect(page).not_to have_link("Get On Queue")
+    expect(page).to have_link("Admin Page")
   end
   
 end

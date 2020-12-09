@@ -18,19 +18,4 @@ RSpec.describe GymsController, type: :controller do
             expect(response).to render_template("show")
         end
     end
-    context "update" do
-        it "decrements the top floor occupancy by 1" do
-            @gym = Gym.new(:name => "Trudy", :top_floor_occupancy => 10, :bottom_floor_occupancy => 15, :top_floor_capacity => 25, :bottom_floor_capacity => 20, :wait_top_floor => 2, :wait_bottom_floor => 0)
-            expect{
-              patch :update, :params => gym_path(:id => 1)      
-            }.to change(Gym,:top_floor_occupancy).by(-1)
-        end
-        it "decrements the botom floor occupancy by 1" do
-            @gym = Gym.new(:name => "Trudy", :top_floor_occupancy => 10, :bottom_floor_occupancy => 15, :top_floor_capacity => 25, :bottom_floor_capacity => 20, :wait_top_floor => 2, :wait_bottom_floor => 0)
-            expect{
-              patch :update, :params => gym_path(:id => 2)    
-            }.to change(Gym,:bottom_floor_occupancy).by(-1)
-        end
-    end
-    
 end

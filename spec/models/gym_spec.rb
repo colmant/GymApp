@@ -63,9 +63,9 @@ RSpec.describe Gym, type: :model do
     end
     
     context "the subtract_wait_bottom_floor method" do
-        it "should check that add_wait_top_floor add 1 to wait_top_floor" do
-            g = Gym.new(:name => "Trudy", :top_floor_occupancy => 0, :bottom_floor_occupancy => 0, :top_floor_capacity => 25, :bottom_floor_capacity => 20, :wait_top_floor => 2, :wait_bottom_floor => 0)
-            g.subtract_wait_bottom_floor
+        it "should check that subtract_wait_bottom_floor subtract 1 to wait_bottom_floor" do
+            g = Gym.new(:name => "Trudy", :top_floor_occupancy => 0, :bottom_floor_occupancy => 2, :top_floor_capacity => 25, :bottom_floor_capacity => 20, :wait_top_floor => 0, :wait_bottom_floor => 2)
+            g.subtract_wait_bottom_floor()
             expect(g.wait_bottom_floor).to eq(1)
         end
     end
