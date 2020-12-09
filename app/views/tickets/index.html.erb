@@ -38,9 +38,9 @@
 </div>
 <br>
 <% unless @tickets.first.nil? %>
-  
-    <%= link_to("<button>Admit new gym user</button>".html_safe, @tickets.first, method: :delete) %> 
-  
+  <button class="button" id="bottom_plus">
+    <%= link_to("Admit new gym user", @tickets.first, method: :delete) %>
+  </button>
 <% end %>
 <table class="table" id="queue">
   <thead class="thead-light">
