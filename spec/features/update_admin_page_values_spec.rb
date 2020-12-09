@@ -9,9 +9,7 @@ feature "When an admin is signed in," do
         admin = User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "colgate13")
         login_as(admin, :scope => :user)
         visit(tickets_path)
-        within("#bottom_minus") do
-            click_on("-")
-        end
+        click_on(class: 'minus_bottom')
         expect(page).to have_content("Current Bottom Floor Occupancy: 0")
     end
   
@@ -20,9 +18,7 @@ feature "When an admin is signed in," do
         admin = User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "colgate13")
         login_as(admin, :scope => :user)
         visit(tickets_path)
-        within("#top_minus") do
-            click_on("-")
-        end
+        click_on(class: 'minus_top')
         expect(page).to have_content("Current Top Floor Occupancy: 0")
     end
     
@@ -32,9 +28,7 @@ feature "When an admin is signed in," do
         admin = User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "colgate13")
         login_as(admin, :scope => :user)
         visit(tickets_path)
-        within("#bottom_plus") do
-            click_on("+")
-        end
+        click_on(class: 'plus_bottom')
         expect(page).to have_content("Current Bottom Floor Occupancy: 2")
     end
     
@@ -44,9 +38,8 @@ feature "When an admin is signed in," do
         admin = User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "colgate13")
         login_as(admin, :scope => :user)
         visit(tickets_path)
-        within("#top_plus") do
-            click_on("+")
-        end
+        click_on(class: 'plus_top')
+        
         expect(page).to have_content("Current Top Floor Occupancy: 1")
     end
     
@@ -56,9 +49,7 @@ feature "When an admin is signed in," do
         admin = User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "colgate13")
         login_as(admin, :scope => :user)
         visit(tickets_path)
-        within("#bottom_minus") do
-            click_on("-")
-        end
+        click_on(class: 'minus_bottom')
         expect(page).to have_content("Current Bottom Floor Occupancy: 0")
         expect(page).to have_content("Bottom Floor is Already Empty")
     end
@@ -69,9 +60,7 @@ feature "When an admin is signed in," do
         admin = User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "colgate13")
         login_as(admin, :scope => :user)
         visit(tickets_path)
-        within("#top_minus") do
-            click_on("-")
-        end
+        click_on(class: 'minus_top')
         expect(page).to have_content("Current Top Floor Occupancy: 0")
         expect(page).to have_content("Top Floor is Already Empty")
     end
@@ -83,9 +72,7 @@ feature "When an admin is signed in," do
         admin = User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "colgate13")
         login_as(admin, :scope => :user)
         visit(tickets_path)
-        within("#top_plus") do
-            click_on("+")
-        end
+        click_on(class: 'plus_top')
         expect(page).to have_content("Current Top Floor Occupancy: 25")
         expect(page).to have_content("Top Floor is at Capacity")
         visit('/')
@@ -98,9 +85,7 @@ feature "When an admin is signed in," do
         admin = User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "colgate13")
         login_as(admin, :scope => :user)
         visit(tickets_path)
-        within("#bottom_plus") do
-            click_on("+")
-        end
+        click_on(class: 'plus_bottom')
         expect(page).to have_content("Current Bottom Floor Occupancy: 20")
         expect(page).to have_content("Bottom Floor is at Capacity")
         visit('/')
