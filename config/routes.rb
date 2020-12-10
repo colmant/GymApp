@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   resources :users
   
   resources :gyms
+  
+  resources :trudy_trends
   #root 'tickets#index'
   namespace :charts do
     get "trends-by-day"

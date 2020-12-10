@@ -30,7 +30,7 @@ gem 'devise'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-#gem 'faker', '~>', '>= 1.7.2'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -39,8 +39,11 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0'
   gem 'capybara', '~> 2.13'
   gem "factory_bot_rails"
-  # gem 'populator'
-  # gem 'faker'
+
+  #gem 'populator'
+  #gem 'faker'
+  #gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+
 end
 
 group :development do

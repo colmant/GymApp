@@ -40,9 +40,7 @@ ActiveRecord::Schema.define(version: 2020_12_07_223658) do
   end
 
   create_table "trudy_trends", force: :cascade do |t|
-    t.string "day_of_week"
-    t.decimal "average_queue_time", precision: 10, scale: 2
-    t.integer "average_queue_size"
+    t.datetime "time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
