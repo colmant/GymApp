@@ -1,6 +1,6 @@
 class Gym < ApplicationRecord
     has_many :tickets
-    validate :check_record, on: :create #please not that validate in this case is singular
+    validate :check_record, on: :create 
 
     def check_record
         if Gym.all.count === 1
@@ -19,11 +19,9 @@ class Gym < ApplicationRecord
         end
         return false
     end
-   
     
     def add_top_floor
         self.top_floor_occupancy += 1 if self.top_floor_occupancy < 25
-        #self.wait_top_floor += 1 if self.top_floor_occupancy >= 25
         self.save
     end
     
@@ -34,7 +32,6 @@ class Gym < ApplicationRecord
     
     def add_bottom_floor
         self.bottom_floor_occupancy += 1 if self.bottom_floor_occupancy < 20
-        #self.wait_bottom_floor += 1 if self.bottom_floor_occupancy >= 20
         self.save
     end
     

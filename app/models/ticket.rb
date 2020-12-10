@@ -20,9 +20,5 @@ class Ticket < ApplicationRecord
             @@queue.index(@ticket) + 1
         end
     end
-    
-    # def get_position_for_queue
-    #     @@queue.index(self) + 1
-    # end
 
 end

@@ -36,9 +36,12 @@
 @import '~bootstrap/scss/_transitions.scss';
 @import '~bootstrap/scss/_utilities.scss';
 
+body {
+  background-color: #f8f8ff;
+}
 
 .navbar-custom { 
-        background-color: maroon; 
+    background-color: #821019; 
     } 
 
 *{

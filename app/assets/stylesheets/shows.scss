@@ -6,49 +6,63 @@
   text-align: center;
 }
 
-
 #container{
   width: 100%;
-  margin: 5% auto;
 }
 
-#player1{
+#top{
   background-color: rgba(0,0,0,0.8);
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  width: 65%;
-  height: 300px;
-  margin: 0 auto;
+  border-radius: 30px;
+  width: 60%;
+  height: 330px;
+  margin-right: 20px;
+  float: left;
+  margin-top: 20px;
 }
-#player1 h1,
-#player2 h1{
+
+#bottom{
+  background-color: rgba(0,0,0,0.4);
+  border-radius: 30px;
+  width: 60%;
+  height: 330px;
+  margin-right: 20px;
+  float: left;
+  margin-top: 20px;
+}
+
+#wait{
+  background-color: #821019;
+  border-radius: 30px;
+  width: 22%;
+  height: 330px;
+  margin-left: 20px;
+  float: left;
+  margin-top: 20px;
+}
+
+#top h1,
+#bottom h1,
+#wait h1{
   font-size: 60px;
   color: white;
   line-height: 100px;
 }
 
-#player2{
-  background-color: rgba(0,0,0,0.4);
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-  width: 65%;
-  height: 300px;
-  margin: 0 auto;
+#label-container-child {
+  color: white;
+  float: left;
 }
 
-.scoreblock {
-  background-color: rgba(0,0,0,0);
-  border-radius: 15px;
-  color: white;
-  position: relative;
-  float: left;
+.gym_values {
   font-size: 100px;
-  line-height: 150px;
-  list-style: none;
-  left: 15%;
-  margin: 0 10px;
-  width: 20%;
-  height: 150px;
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+.gym_labels {
+  font-size: 20px;
+  margin-left: 90px;
+  margin-right: 90px;
 }
 
 .minus:hover,
@@ -59,4 +73,20 @@
 .minus:active,
 .plus:active{
   background-color: rgba(255,255,255, 0.7);
+}
+
+.topnav-centered {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-decoration: none;
+  font-size: 50px;
+  padding-bottom: 7px;
+}
+
+#title {
+  padding: 10px;
+  font-size: 75px;
 }
