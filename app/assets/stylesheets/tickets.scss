@@ -2,7 +2,6 @@
 //
 h3 {
   font-family: 'Marcellus SC', serif;
-  font-weight: 200;
   margin: 0;
   padding:  0;
   text-align: center;
@@ -14,21 +13,22 @@ p {
 }
 
 button {
- display:inline-block;
- padding: 0.2em 1.45em;
+ display: inline-flex;
+ padding-left: 20px;
+ padding-right: 20px;
  margin: 0.1em;
  border: 0.15em solid #CCCCCC;
- font-family:'Segoe UI','Roboto', sans-serif;
  font-weight: 400;
  background-color: #CCCCCC;
  text-align: center;
  text-decoration: none;
+ align-items: center;
 }
 
 #admit {
  float: left;
- left: 10px;
- position: relative;
+ margin-left: 20px;
+ font-size: 20px;
 }
 
 button a:link, .button a:visited, .button a:hover, .button a:active {
@@ -42,7 +42,6 @@ button:hover{
 }
 
 .occupancy{
- font-family:'Segoe UI','Roboto', sans-serif;
  font-weight: 400;
  font-size: 30px;
  text-align: right;
@@ -59,11 +58,11 @@ strong{
  margin-left: auto;
  margin-right: auto;
  border: 1px solid black;
- 
+ line-height: 50px;
 }
 
 #top_plus, #top_minus, #bottom_plus, #bottom_minus {
- font-size: 20px; 
+ font-size: 50px; 
 }
 
 .table {
@@ -72,7 +71,25 @@ strong{
 
 .table, th, tr {
  border: 1px solid black;
+ font-size: 20px;
 }
 
+.title-button {
+ width: 50%;
+ display: flex;
+ justify-content: center;
+}
 
+.table tr:nth-child(even) {
+ background: #e6f3ff;
+}
+
+.table tr:nth-child(odd) {
+ background: #FFF;
+}
+
+th {
+ background: #821019;
+ color: white;
+}
 

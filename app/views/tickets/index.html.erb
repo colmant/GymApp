@@ -1,9 +1,9 @@
-
 <br>
-<h3>Update Occupancy Values</h3>
+<br>
+<h2><strong>Occupancy Values</strong></h2>
 <br>
 <table class = "center_table">
-  <tr class = "center_table">
+  <tr>
     <td class="occupancy">Current Top Floor Occupancy:  <strong class="num"><%= @gym.top_floor_occupancy %></strong></td>
     <td>
       <button class="button" id="top_plus">
@@ -31,22 +31,22 @@
   </tr>
 </table>
 <br>
-<div class="row">
-    <div class="col-md">
-      <h3>Trudy Fitness Queue</h3>
-    </div>
-</div>
 <br>
-<div id = "container">
+<div id="container">
   <div class="d-flex justify-content-center">
-    <% unless Ticket.queueTop.empty? %>
-      <button class="button" id="admit">
-        <%= link_to("Admit to top", @ticketsTop.first, method: :delete) %>
-      </button>
-    <% end %>
+    <div class="title-button">
+      <h2><strong>Top Floor Queue</strong></h2>
+      <% unless Ticket.queueTop.empty? %>
+        <button class="button" id="admit">
+          <%= link_to("Admit to Top", @ticketsTop.first, method: :delete) %>
+        </button>
+      <% end %>
+    </div>
+    <div class="title-button">
+       <h2><strong>Bottom Floor Queue</strong></h2>
     <% unless Ticket.queueBottom.empty? %>
       <button class="button" id="admit">
-        <%= link_to("Admit to bottom", @ticketsBottom.first, method: :delete) %>
+        <%= link_to("Admit to Bottom", @ticketsBottom.first, method: :delete) %>
       </button>
     <% end %>
   </div>
@@ -55,12 +55,11 @@
 <div id = "container">
   <div class="d-flex justify-content-center">
     <table class="table" id="queue">
-      <thead class="thead-light">
+      <thead>
         <tr>
           <th>Position</th>
           <th>Name</th>
           <th>Email</th>
-          <th>Floor</th>
           <th>Time</th>
         </tr>
       </thead>
@@ -77,10 +76,7 @@
               <%= t.user.email %>
             </td>
             <td>
-              <%= t.floor %>
-            </td>
-            <td>
-              <%= t.created_at %>
+              <%= t.created_at.strftime("at %I:%M %P") %>
             </td>
           </tr>
         <% end %>
@@ -88,12 +84,11 @@
     </table>
     
     <table class="table" id="queue">
-      <thead class="thead-light">
+      <thead class="thead">
         <tr>
           <th>Position</th>
           <th>Name</th>
           <th>Email</th>
-          <th>Floor</th>
           <th>Time</th>
         </tr>
       </thead>
@@ -110,10 +105,7 @@
               <%= t.user.email %>
             </td>
             <td>
-              <%= t.floor %>
-            </td>
-            <td>
-              <%= t.created_at %>
+              <%= t.created_at.strftime("at %I:%M %P") %>
             </td>
           </tr>
         <% end %>
