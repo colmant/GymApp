@@ -9,6 +9,12 @@
 <div>
   <h1><%= "Waiting for Bottom Floor: #{@gym.wait_bottom_floor}" %></h1>
 </div>
+<div>
+   <% if @gym.check_tickets != false %>
+       <h1> Position in Queue: <%= @gym.check_tickets %> </h1>
+  <% end %>
+</div>
+
 
 <div id = "container">
   <div id = "player1">

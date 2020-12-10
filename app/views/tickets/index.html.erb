@@ -1,11 +1,45 @@
+
+<br>
+<h3>Update Occupancy Values</h3>
+<br>
+<table class = "center_table">
+  <tr class = "center_table">
+    <td class="occupancy">Current Top Floor Occupancy:  <strong class="num"><%= @gym.top_floor_occupancy %></strong></td>
+    <td>
+      <button class="button" id="top_plus">
+        <%= link_to("+", gym_path(:id => 3), method: :patch) %>
+      </button>
+    </td>
+    <td>
+      <button class="button" id="top_minus">
+        <%= link_to("-", gym_path(:id => 1), method: :patch) %>
+      </button>
+    </td>
+  </tr>
+  <tr>
+    <td class="occupancy">Current Bottom Floor Occupancy:  <strong class="num"><%= @gym.bottom_floor_occupancy %></strong></td>
+    <td>
+      <button class="button" id="bottom_plus">
+        <%= link_to("+", gym_path(:id => 4), method: :patch) %>
+      </button>
+    </td>
+    <td>
+      <button class="button" id="bottom_minus">
+        <%= link_to("-", gym_path(:id => 2), method: :patch) %>
+      </button>
+    </td>
+  </tr>
+</table>
+<br>
 <div class="row">
     <div class="col-md">
-      <h3>Trudy Fitness queue</h3>
+      <h3>Trudy Fitness Queue</h3>
     </div>
 </div>
+<br>
 <% unless @tickets.first.nil? %>
-  <button>
-    <%= link_to('Admit new gym user', @tickets.first, method: :delete) %> 
+  <button class="button" id="bottom_plus">
+    <%= link_to("Admit new gym user", @tickets.first, method: :delete) %>
   </button>
 <% end %>
 <table class="table" id="queue">
@@ -21,25 +55,28 @@
     </tr>
   </thead>
   <tbody>
-    <% @tickets.each do |p| %>
+    <% @tickets.each do |t| %>
       <tr>
         <td>
-          <%= p.id %>
+          <%= t.get_position %>
         </td>
         <td>
-          <%= p.name %>
+          <%= t.name %>
         </td>
         <td>
-          <%= p.user.email %>
+          <%= t.user.email %>
         </td>
         <td>
-          <%= p.floor %>
+          <%= t.floor %>
         </td>
         <td>
-          <%= p.created_at %>
+          <%= t.created_at %>
         </td>
         <td>
-          <%= p.user_id %>
+          <%= t.user_id %>
+        </td>
+        <td>
+          <%= t.gym.id %>
         </td>
         <td>
           <%= p.gym.id %>
