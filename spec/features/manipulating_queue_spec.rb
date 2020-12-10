@@ -11,17 +11,17 @@ feature "When an admin is signed in," do
         user1 = User.create!(:email => 'stheisen@colgate.edu', :password => "shelby")
         user2 = User.create!(:email => 'jjacob@colgate.edu', :password => "jessej")
         g = Gym.find_by(name: "Trudy")
-        t1 = Ticket.create!(:name => "Shelby Theisen", :floor => "bottom", :user => user1, :gym => g)
+        t1 = Ticket.create!(:name => "Shelby Theisen", :floor => "top", :user => user1, :gym => g)
         t2 = Ticket.create!(:name => "Jesse Jacob", :floor => "top", :user => user2, :gym => g)
-        Ticket.queue << t1
-        Ticket.queue << t2
+        Ticket.queueTop << t1
+        Ticket.queueTop << t2
         login_as(admin, :scope => :user)
         visit(tickets_path)
-        pos2before = t2.get_position
+        pos2before = t2.get_position_top
         expect(page).to have_content('stheisen@colgate.edu')
-        expect(page).to have_content(t1.get_position)
+        expect(page).to have_content(t1.get_position_top)
         expect(page).to have_content('jjacob@colgate.edu')
-        expect(page).to have_content(t2.get_position)
+        expect(page).to have_content(t2.get_position_top)
         expect(page).to have_link('Admit new gym user')
         click_link 'Admit new gym user'
         expect(page).not_to have_content('stheisen@colgate.edu')
@@ -38,28 +38,28 @@ feature "When an admin is signed in," do
         g = Gym.find_by(name: "Trudy")
         t1 = Ticket.create!(:name => "Shelby Theisen", :floor => "bottom", :user => user1, :gym => g)
         t2 = Ticket.create!(:name => "Jesse Jacob", :floor => "top", :user => user2, :gym => g)
-        Ticket.queue << t1
-        Ticket.queue << t2
+        Ticket.queueBottom << t1
+        Ticket.queueTop << t2
         g.add_wait_top_floor()
         g.add_wait_bottom_floor()
         visit("/")
-        expect(page).to have_content("Waiting for Top Floor: 1")
-        expect(page).to have_content("Waiting for Bottom Floor: 1")
+        expect(page).to have_content("Top Queue 1 person waiting")
+        expect(page).to have_content("Bottom Queue 1 person waiting")
         expect(page).to have_content("Top Floor 10 / 25")
         expect(page).to have_content("Bottom Floor 15 / 20")
         login_as(admin, :scope => :user)
         visit(tickets_path)
         click_link 'Admit new gym user'
         visit("/")
-        expect(page).to have_content("Waiting for Top Floor: 1")
-        expect(page).to have_content("Waiting for Bottom Floor: 0")
+        expect(page).to have_content("Top Queue 1 person waiting")
+        expect(page).to have_content("Bottom Queue 0 people waiting")
         expect(page).to have_content("Top Floor 10 / 25")
         expect(page).to have_content("Bottom Floor 16 / 20")
         visit(tickets_path)
         click_link 'Admit new gym user'
         visit("/")
-        expect(page).to have_content("Waiting for Top Floor: 0")
-        expect(page).to have_content("Waiting for Bottom Floor: 0")
+        expect(page).to have_content("Top Queue 0 people waiting")
+        expect(page).to have_content("Bottom Queue 0 people waiting")
         expect(page).to have_content("Top Floor 11 / 25")
         expect(page).to have_content("Bottom Floor 16 / 20")
     end
@@ -68,7 +68,7 @@ feature "When an admin is signed in," do
         admin = User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "colgate13")
         user = User.create!(:email => 'stheisen@colgate.edu', :password => "shelby")
         g = Gym.find_by(name: "Trudy")
-        Ticket.queue << Ticket.create!(:name => "Shelby Theisen", :floor => "top", :user => user, :gym => g)
+        Ticket.queueTop << Ticket.create!(:name => "Shelby Theisen", :floor => "top", :user => user, :gym => g)
         login_as(admin, :scope => :user)
         visit(tickets_path)
         expect(page).to have_content('stheisen@colgate.edu')

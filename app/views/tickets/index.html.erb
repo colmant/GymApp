@@ -37,49 +37,89 @@
     </div>
 </div>
 <br>
-<% unless @tickets.first.nil? %>
-  <button class="button" id="bottom_plus">
-    <%= link_to("Admit new gym user", @tickets.first, method: :delete) %>
-  </button>
-<% end %>
-<table class="table" id="queue">
-  <thead class="thead-light">
-    <tr>
-      <th>Position</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Floor</th>
-      <th>Time</th>
-      <th>UserID</th>
-      <th>Gym</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @tickets.each do |t| %>
-      <tr>
-        <td>
-          <%= t.get_position %>
-        </td>
-        <td>
-          <%= t.name %>
-        </td>
-        <td>
-          <%= t.user.email %>
-        </td>
-        <td>
-          <%= t.floor %>
-        </td>
-        <td>
-          <%= t.created_at %>
-        </td>
-        <td>
-          <%= t.user_id %>
-        </td>
-        <td>
-          <%= t.gym.id %>
-        </td>
-      </tr>
+<div id = "container">
+  <div class="d-flex justify-content-center">
+    <% unless Ticket.queueTop.empty? %>
+      <button class="button" id="admit">
+        <%= link_to("Admit to top", @ticketsTop.first, method: :delete) %>
+      </button>
     <% end %>
-  </tbody>
-</table>
+    <% unless Ticket.queueBottom.empty? %>
+      <button class="button" id="admit">
+        <%= link_to("Admit to bottom", @ticketsBottom.first, method: :delete) %>
+      </button>
+    <% end %>
+  </div>
+</div>
+
+<div id = "container">
+  <div class="d-flex justify-content-center">
+    <table class="table" id="queue">
+      <thead class="thead-light">
+        <tr>
+          <th>Position</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Floor</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @ticketsTop.each do |t| %>
+          <tr>
+            <td>
+              <%= t.get_position_top %>
+            </td>
+            <td>
+              <%= t.name %>
+            </td>
+            <td>
+              <%= t.user.email %>
+            </td>
+            <td>
+              <%= t.floor %>
+            </td>
+            <td>
+              <%= t.created_at %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+    <table class="table" id="queue">
+      <thead class="thead-light">
+        <tr>
+          <th>Position</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Floor</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @ticketsBottom.each do |t| %>
+          <tr>
+            <td>
+              <%= t.get_position_bottom %>
+            </td>
+            <td>
+              <%= t.name %>
+            </td>
+            <td>
+              <%= t.user.email %>
+            </td>
+            <td>
+              <%= t.floor %>
+            </td>
+            <td>
+              <%= t.created_at %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 

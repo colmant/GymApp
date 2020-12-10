@@ -28,9 +28,10 @@ feature "Creating a ticket" do
         login_as(user, :scope => :user)
         g = Gym.find_by(name: "Trudy")
         t1 = Ticket.create!(:name => "Shelby Theisen", :floor => "Bottom", :user => user, :gym => g)
+        Ticket.queueBottom << t1
         visit(new_ticket_path)
-        expect(page).to have_content 'You have already submitted a ticket for the queue.'
-        expect(page).to have_content 'Your current position in the queue is: ' + t1.get_position.to_s
+        expect(page).to have_content 'You have already submitted a ticket for the bottom floor queue.'
+        expect(page).to have_content 'Your current position is: ' + t1.get_position_bottom.to_s
         expect(page).to have_current_path(new_ticket_path)
     end
     

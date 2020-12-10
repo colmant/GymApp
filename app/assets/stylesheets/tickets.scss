@@ -22,8 +22,13 @@ button {
  font-weight: 400;
  background-color: #CCCCCC;
  text-align: center;
- position: relative;
  text-decoration: none;
+}
+
+#admit {
+ float: left;
+ left: 10px;
+ position: relative;
 }
 
 button a:link, .button a:visited, .button a:hover, .button a:active {
@@ -59,6 +64,14 @@ strong{
 
 #top_plus, #top_minus, #bottom_plus, #bottom_minus {
  font-size: 20px; 
+}
+
+.table {
+ margin: 10px;
+}
+
+.table, th, tr {
+ border: 1px solid black;
 }
 
 

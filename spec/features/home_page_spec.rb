@@ -9,7 +9,7 @@ feature "Visiting the home page" do
         g = Gym.find_by(name: "Trudy")
         t1 = Ticket.create!(:name => "Shelby Theisen", :floor => "Bottom", :user => user, :gym => g)
         visit('/')
-        expect(page).to have_content 'Position in Queue: ' + t1.get_position.to_s
+        expect(page).to have_content "Shelby Theisen's position in queue for bottom floor:" + t1.get_position_bottom.to_s
     end
     
     scenario "when a user is not signed in" do

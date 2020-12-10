@@ -1,4 +1,4 @@
-<% if @ticket.not_present? %>
+<% if @gym.check_tickets == false %>
     <%= form_with model: @ticket, local: true do |f| %>
         <h1>Create New Ticket</h1>
         <%= f.label :name %>
@@ -11,9 +11,9 @@
     <% end %>
 <% else %>
     <h1>
-        You have already submitted a ticket for the queue.
+        You have already submitted a ticket for the <%= current_user.ticket.floor %> floor queue.
     </h1>
     <h2>
-        <%= "Your current position in the queue is: #{@ticket.get_position}" %>
+        Your current position is: <%= @gym.check_tickets %>
     </h2>
 <% end %>

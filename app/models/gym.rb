@@ -10,14 +10,17 @@ class Gym < ApplicationRecord
     
     def check_tickets
         @gym = Gym.find_by(name: "Trudy")
-        tickets = @gym.tickets
         
-        tickets.each do |t|
-            if t.not_present? == false
-                return t.get_position
+        if @gym.tickets.find_by(user: User.current).nil?
+            return false
+        else
+            myTicket = @gym.tickets.find_by(user: User.current)
+            if (myTicket.floor == "top")
+                return myTicket.get_position_top
+            else
+                return myTicket.get_position_bottom
             end
         end
-        return false
     end
     
     def add_top_floor

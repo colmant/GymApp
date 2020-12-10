@@ -10,10 +10,22 @@
   width: 100%;
 }
 
+#position{
+  background-color: #5BC4FC;
+  border-radius: 30px;
+  width: 60%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 #top{
   background-color: rgba(0,0,0,0.8);
   border-radius: 30px;
-  width: 60%;
+  width: 57%;
   height: 330px;
   margin-right: 20px;
   float: left;
@@ -23,7 +35,7 @@
 #bottom{
   background-color: rgba(0,0,0,0.4);
   border-radius: 30px;
-  width: 60%;
+  width: 57%;
   height: 330px;
   margin-right: 20px;
   float: left;
@@ -33,7 +45,7 @@
 #wait{
   background-color: #821019;
   border-radius: 30px;
-  width: 22%;
+  width: 28%;
   height: 330px;
   margin-left: 20px;
   float: left;
@@ -88,5 +100,5 @@
 
 #title {
   padding: 10px;
-  font-size: 75px;
+  font-size: 65px;
 }
