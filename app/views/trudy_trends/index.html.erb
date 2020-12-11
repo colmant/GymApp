@@ -1,0 +1,41 @@
+<h1>Trudy Trends</h1>
+
+<!--<tbody>-->
+<!--    <% @trudy_trends.each do |p| %>-->
+<!--    <tr>-->
+<!--        <td>-->
+<!--          <%= p.time %>-->
+<!--        </td>-->
+<!--    </tr> -->
+<!--    <% end %>-->
+<!--</tbody>-->
+<br>
+<tbody>
+    <div class="container">
+        <tr>
+            <td>
+                <%= column_chart TrudyTrend.group_by_day_of_week(:time, format: "%a").count, title: "Entries by Day", width: "1100px", height: "480px", 
+            xtitle: "Day Of the Week", ytitle: "Total Entries", min:0, max:60%>
+            </td>
+            <br>
+            <br>
+            <td>
+                <%= column_chart TrudyTrend.group_by_hour_of_day(:time, format: "%-l %P").group_by_day_of_week(:time, format: "%a").count, title: "Entries by Time of Day", width: "1100px", height: "480px", 
+            xtitle: "Popular Times by Day", ytitle: "Total Entries", min:0, max:10, legend: false %>
+            </td>
+        </tr>
+    </div>
+</tbody>
+
+
+
+
+
+        
+
+
+        
+
+
+
+
