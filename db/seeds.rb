@@ -9,11 +9,10 @@
 require 'faker'
 
 200.times do
-    TrudyTrend.create ([{
-        time: DateTime.current().change(day: rand(1..7), hour: rand(8..22), min: rand(0..59))
-    }])
+    date = DateTime.new(2020,12,1,1,1).change(day: rand(1..7), hour: rand(8..22), min: rand(0..59))
+    TrudyTrend.create!(:time => date)
 end
-#
+
 
 # TrudyTrend.delete_all
 # trendslisit =[]

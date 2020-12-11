@@ -29,13 +29,11 @@ ActiveRecord::Schema.define(version: 2020_12_07_223658) do
   create_table "tickets", force: :cascade do |t|
     t.string "name"
     t.integer "gym_id"
-    t.integer "tickets_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
     t.string "floor"
     t.index ["gym_id"], name: "index_tickets_on_gym_id"
-    t.index ["tickets_id"], name: "index_tickets_on_tickets_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
@@ -60,6 +58,5 @@ ActiveRecord::Schema.define(version: 2020_12_07_223658) do
 
   add_foreign_key "gyms", "tickets", on_delete: :cascade
   add_foreign_key "tickets", "gyms"
-  add_foreign_key "tickets", "tickets", column: "tickets_id"
   add_foreign_key "tickets", "users"
 end
