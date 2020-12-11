@@ -39,6 +39,7 @@ class Gym < ApplicationRecord
     end
     
     def subtract_bottom_floor
+        self.bottom_floor_occupancy -= 1 if self.bottom_floor_occupancy >= 0
         self.bottom_floor_occupancy -= 1 if self.bottom_floor_occupancy > 0
         self.save
     end
@@ -59,6 +60,7 @@ class Gym < ApplicationRecord
     end
     
     def subtract_wait_bottom_floor
+        self.wait_bottom_floor -= 1 if self.wait_top_floor > 0
         self.wait_bottom_floor -= 1 if self.wait_bottom_floor > 0
         self.save
     end

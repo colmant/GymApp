@@ -25,4 +25,5 @@ class Ticket < ApplicationRecord
     #     @@queue.index(self) + 1
     # end
 
+
 end

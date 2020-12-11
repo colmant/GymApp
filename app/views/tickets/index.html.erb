@@ -78,8 +78,20 @@
         <td>
           <%= t.gym.id %>
         </td>
+        <td>
+          <%= p.gym.id %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<button>
+    
+    <%= link_to('Decrement Top Floor Capacity', gym_path(:id => 1), method: :patch) %> 
+</button>
+  
+<button>
+    
+    <%= link_to('Decrement Bottom Floor Capacity', gym_path(:id => 2), method: :patch) %> 
+</button>

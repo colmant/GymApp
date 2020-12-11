@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
     #get "pages/home"
     root :to => "gyms#show"
+
   
   #get "gyms/show", to: "gyms#show"
   
@@ -14,5 +15,15 @@ Rails.application.routes.draw do
   resources :users
   
   resources :gyms
+  
+  resources :trudy_trends
   #root 'tickets#index'
+  namespace :charts do
+    get "trends-by-day"
+  end
+  # resources :charts, only: [] do
+  #   collection do
+  #     get 'trends_by_days'
+  #   end
+  # end
 end
