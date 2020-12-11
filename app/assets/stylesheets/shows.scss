@@ -95,11 +95,58 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-decoration: none;
-  font-size: 50px;
+  font-size: 46px;
   padding-bottom: 7px;
 }
 
 #title {
+  margin-top: 10px;
   padding: 10px;
   font-size: 65px;
+}
+
+#login {
+  background-color: rgba(0,0,0,0.8);
+  border-radius: 30px;
+  width: 45%;
+  height: 335px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#signup {
+  background-color: rgba(0,0,0,0.4);
+  border-radius: 30px;
+  width: 45%;
+  height: 410px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.field {
+  padding-top: 25px;
+  color: white;
+  font-size: 23px;
+}
+
+.floor-field {
+  padding-top: 15px;
+  color: white;
+  font-size: 23px;
+  padding-bottom: 20px;
+}
+
+.remember {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: white;
+  font-size: 16px;
+}
+
+#submit {
+  padding-top: 20px;
 }

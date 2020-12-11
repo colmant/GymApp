@@ -1,19 +1,40 @@
 <% if @gym.check_tickets == false %>
-    <%= form_with model: @ticket, local: true do |f| %>
-        <h1>Create New Ticket</h1>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-        <br >
-        <%= f.label :floor %>
-        <%= f.select :floor, [['Top','top'],['Bottom','bottom']] %>
-        <br >
-        <%= f.submit "Create new Ticket" %>
-    <% end %>
-<% else %>
-    <h1>
-        You have already submitted a ticket for the <%= current_user.ticket.floor %> floor queue.
-    </h1>
+    <div id="title">
+        Submit a Ticket
+    </div>
+    <h4>
+        To submit a ticket for the queue, please provide your <b>full name</b> and choose your desired <b>floor</b> from the dropdown menu.
+    </h4>
+    <h4>
+        <i>Your email address (<%= current_user.email %>) will be recorded with your ticket.</i>
+    </h4>
+    <div id="container">
+        <div id="create">  
+            <%= form_with model: @ticket, local: true do |f| %>
+                <div class="field">
+                    <%= f.label :name, :class => "submit-ticket" %>
+                    <%= f.text_field :name %>
+                </div>
+                <br >
+                <div class="floor-field">
+                    <%= f.label :floor, :class => "submit-ticket" %>
+                    <%= f.select :floor, [['Top','top'],['Bottom','bottom']] %>
+                </div>
+                <br >
+                <div>
+                    <%= f.submit "Submit Ticket", :class => "button" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    <% else %>
+    <div id="title">
+        Ticket Already Submitted
+    </div>
     <h2>
-        Your current position is: <%= @gym.check_tickets %>
+        <i>Looks like you are already waiting in the <%= current_user.ticket.floor %> floor queue!</i>
+    </h2>
+    <h2>
+        <i>You are currently in position</i> <b><%= @gym.check_tickets %></b>.
     </h2>
 <% end %>

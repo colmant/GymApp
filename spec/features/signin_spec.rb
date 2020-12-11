@@ -13,7 +13,7 @@ feature "Signing in" do
       fill_in 'Email', with: 'user@example.com'
       fill_in 'Password', with: '123456'
     end
-    click_button 'Log in'
+    click_button 'Log In'
     expect(page).to have_content 'Signed in successfully.'
     expect(page).to have_current_path('/')
   end
@@ -24,7 +24,7 @@ feature "Signing in" do
       fill_in 'Email', with: 'xxx@gmail.com'
       fill_in 'Password', with: 'fake_pword'
     end
-    click_button 'Log in'
+    click_button 'Log In'
     expect(page).to have_content 'Invalid Email or password.'
     expect(page).to have_current_path(new_user_session_path)
   end
@@ -35,7 +35,7 @@ feature "Signing in" do
       fill_in 'Email', with: 'admin@colgate.edu'
       fill_in 'Password', with: 'colgate13'
     end
-    click_button 'Log in'
+    click_button 'Log In'
     expect(page).to have_content 'Signed in successfully.'
     expect(page).to have_current_path('/')
     expect(page).to have_link("Admin Page")

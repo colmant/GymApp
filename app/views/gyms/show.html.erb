@@ -8,7 +8,7 @@
         <div class="d-flex justify-content-center">
           <div id="position">
             <h2>
-              <%= current_user.ticket.name %>'s position in queue for <%= current_user.ticket.floor %> floor: <%= @gym.check_tickets %>
+              You are currently in position <b><%= @gym.check_tickets %></b> for the <b><%= current_user.ticket.floor %></b> floor queue. 
             </h2>
           </div>
         </div>

@@ -1,4 +1,6 @@
-<br>
+<div id="title">
+  Admin Page
+</div>
 <br>
 <h2><strong>Occupancy Values</strong></h2>
 <br>
@@ -30,6 +32,7 @@
     </td>
   </tr>
 </table>
+<br>
 <br>
 <br>
 <div id="container">
@@ -66,7 +69,7 @@
       <tbody>
         <% @ticketsTop.each do |t| %>
           <tr>
-            <td>
+            <td class="position">
               <%= t.get_position_top %>
             </td>
             <td>
@@ -95,7 +98,7 @@
       <tbody>
         <% @ticketsBottom.each do |t| %>
           <tr>
-            <td>
+            <td class="position">
               <%= t.get_position_bottom %>
             </td>
             <td>
