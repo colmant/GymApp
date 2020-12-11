@@ -6,49 +6,76 @@
   text-align: center;
 }
 
-
 #container{
   width: 100%;
-  margin: 5% auto;
 }
 
-#player1{
-  background-color: rgba(0,0,0,0.8);
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  width: 65%;
-  height: 300px;
-  margin: 0 auto;
+#position{
+  background-color: #e6f3ff;
+  border-radius: 30px;
+  width: 60%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
 }
-#player1 h1,
-#player2 h1{
+
+#top{
+  background-color: rgba(0,0,0,0.8);
+  border-radius: 30px;
+  width: 57%;
+  height: 330px;
+  margin-right: 20px;
+  float: left;
+  margin-top: 30px;
+}
+
+#bottom{
+  background-color: rgba(0,0,0,0.4);
+  border-radius: 30px;
+  width: 57%;
+  height: 330px;
+  margin-right: 20px;
+  float: left;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#wait{
+  background-color: #821019;
+  border-radius: 30px;
+  width: 28%;
+  height: 330px;
+  margin-left: 20px;
+  float: left;
+  margin-top: 30px;
+}
+
+#top h1,
+#bottom h1,
+#wait h1{
   font-size: 60px;
   color: white;
   line-height: 100px;
 }
 
-#player2{
-  background-color: rgba(0,0,0,0.4);
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-  width: 65%;
-  height: 300px;
-  margin: 0 auto;
+#label-container-child {
+  color: white;
+  float: left;
 }
 
-.scoreblock {
-  background-color: rgba(0,0,0,0);
-  border-radius: 15px;
-  color: white;
-  position: relative;
-  float: left;
+.gym_values {
   font-size: 100px;
-  line-height: 150px;
-  list-style: none;
-  left: 15%;
-  margin: 0 10px;
-  width: 20%;
-  height: 150px;
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+.gym_labels {
+  font-size: 20px;
+  margin-left: 90px;
+  margin-right: 90px;
 }
 
 .minus:hover,
@@ -59,4 +86,67 @@
 .minus:active,
 .plus:active{
   background-color: rgba(255,255,255, 0.7);
+}
+
+.topnav-centered {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-decoration: none;
+  font-size: 38px;
+  padding-bottom: 7px;
+}
+
+#title {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 65px;
+}
+
+#login {
+  background-color: rgba(0,0,0,0.8);
+  border-radius: 30px;
+  width: 45%;
+  height: 335px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#signup {
+  background-color: rgba(0,0,0,0.4);
+  border-radius: 30px;
+  width: 45%;
+  height: 410px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.field {
+  padding-top: 25px;
+  color: white;
+  font-size: 23px;
+}
+
+.floor-field {
+  padding-top: 15px;
+  color: white;
+  font-size: 23px;
+  padding-bottom: 20px;
+}
+
+.remember {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: white;
+  font-size: 16px;
+}
+
+#submit {
+  padding-top: 20px;
 }

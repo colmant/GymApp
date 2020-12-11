@@ -1,49 +1,97 @@
 <body>
-<header>
-    <h1 class="text-center">Trudy Fitness Center Current Capacity by Floor</h1>
-</header>
-
-<div>
-  <h1><%= "Waiting for Top Floor: #{@gym.wait_top_floor}" %></h1>
-</div>
-<div>
-  <h1><%= "Waiting for Bottom Floor: #{@gym.wait_bottom_floor}" %></h1>
-</div>
-<div>
+  <div id="title">
+    Welcome to Trudy Fitness Center
+  </div>
+  
    <% if @gym.check_tickets != false %>
-       <h1> Position in Queue: <%= @gym.check_tickets %> </h1>
+     <div id="container">
+        <div class="d-flex justify-content-center">
+          <div id="position">
+            <h2>
+              You are currently in position <b><%= @gym.check_tickets %></b> for the <b><%= current_user.ticket.floor %></b> floor queue. 
+            </h2>
+          </div>
+        </div>
+     </div>
   <% end %>
-</div>
 
-
-<div id = "container">
-  <div id = "player1">
-    <div id="p1score">
-      <h1>Top Floor</h1>
-      <ul>
-        <li class="scoreblock" >
-          <%= @gym.top_floor_occupancy %>
-        </li>
-        <li id="p120" class="scoreblock" value=20>/</li>
-        <li class="scoreblock" >
+  <div id = "container">
+    <div class="d-flex justify-content-center">
+      <div id = "top">
+        <h1>Top Floor</h1>
+        <div class="d-flex justify-content-center">
+          <div class="gym_values" id="label-container-child">
+            <%= @gym.top_floor_occupancy %>
+          </div>
+          <div class="gym_values" id="label-container-child">
+            /
+          </div>
+          <div class="gym_values" id="label-container-child">
             <%= @gym.top_floor_capacity %>
-        </li>
-      </ul>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <div class="gym_labels" id="label-container-child">
+            <%= 'person'.pluralize(@gym.top_floor_occupancy) %> currently in the gym
+          </div>
+          <div class="gym_labels" id="label-container-child">
+            <%= 'person'.pluralize(@gym.top_floor_occupancy) %> allowed at maximum
+          </div>
+        </div>
+      </div>
+      <div id="wait">
+        <h1>Top Queue</h1>
+        <div class="d-flex justify-content-center">
+          <div class="gym_values" id="label-container-child">
+            <%= @gym.wait_top_floor %>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <div class="gym_labels" id="label-container-child">
+            <%= 'person'.pluralize(@gym.wait_top_floor) %> waiting 
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div id = "player2">
-    <div id="p2score">
-      <h1>Bottom Floor</h1>
-      <ul>
-        <li class="scoreblock" >
-          <%= @gym.bottom_floor_occupancy %>
-        </li>
-        <li id="p120" class="scoreblock" value=20>/</li>
-        <li class="scoreblock" >
+  
+  <div id = "container">
+    <div class="d-flex justify-content-center">
+      <div id = "bottom">
+        <h1>Bottom Floor</h1>
+        <div class="d-flex justify-content-center">
+          <div class="gym_values" id="label-container-child">
+            <%= @gym.bottom_floor_occupancy %>
+          </div>
+          <div class="gym_values" id="label-container-child">
+            /
+          </div>
+          <div class="gym_values" id="label-container-child">
             <%= @gym.bottom_floor_capacity %>
-            </li>
-      </ul>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <div class="gym_labels" id="label-container-child">
+            <%= 'person'.pluralize(@gym.bottom_floor_occupancy) %> currently in the gym 
+          </div>
+          <div class="gym_labels" id="label-container-child">
+            <%= 'person'.pluralize(@gym.bottom_floor_capacity) %> allowed at maximum 
+          </div>
+        </div>
+      </div>
+      <div id="wait">
+        <h1>Bottom Queue</h1>
+        <div class="d-flex justify-content-center">
+          <div class="gym_values" id="label-container-child">
+            <%= @gym.wait_bottom_floor %>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <div class="gym_labels" id="label-container-child">
+            <%= 'person'.pluralize(@gym.wait_bottom_floor) %> waiting 
+          </div>
+        </div>
+      </div>
     </div>
   </div>
- 
 </body>

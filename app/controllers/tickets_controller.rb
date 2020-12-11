@@ -2,12 +2,14 @@ class TicketsController < ApplicationController
     before_action :user_signed_in?, only:[:new, :create]
     
     def index
-        @tickets = Ticket.order(:created_at)
+        @ticketsTop = Ticket.where('floor = ?', 'top').order(:created_at).to_a
+        @ticketsBottom = Ticket.where('floor = ?', 'bottom').order(:created_at).to_a
         @gym = Gym.find_by(name: "Trudy")
     end
     
-    def new 
-        @ticket = Ticket.new 
+    def new
+        @ticket = Ticket.new
+        @gym = Gym.find_by(name: "Trudy")
     end
   
     def create
@@ -19,7 +21,7 @@ class TicketsController < ApplicationController
             increase_wait(@ticket)
             flash[:notice] = "New ticket for #{@ticket.name} created for #{@ticket.floor} floor"
             increase_wait(@ticket)
-            Ticket.queue << @ticket
+            @ticket.floor == "top" ? (Ticket.queueTop << @ticket) : (Ticket.queueBottom << @ticket)
             redirect_to "/" and return
         else
             flash[:alert] = "Failed to save new ticket"
@@ -32,8 +34,7 @@ class TicketsController < ApplicationController
         @ticket = Ticket.find(params[:id])
         increase_occupancy(@ticket)
         decrease_wait(@ticket)
-
-        Ticket.queue.delete(@ticket)
+        @ticket.floor == "top" ? Ticket.queueTop.delete(@ticket) : Ticket.queueBottom.delete(@ticket)
         @ticket.destroy
         flash[:notice] = "#{@ticket.name} was admitted to the #{@ticket.floor} floor of the gym."
         redirect_to tickets_path and return

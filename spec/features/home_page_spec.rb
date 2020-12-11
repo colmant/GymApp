@@ -7,9 +7,9 @@ feature "Visiting the home page" do
         user = User.create!(:email => 'test@example.com', :password => 'f4k3p455w0rd')
         login_as(user, :scope => :user)
         g = Gym.find_by(name: "Trudy")
-        t1 = Ticket.create!(:name => "Shelby Theisen", :floor => "Bottom", :user => user, :gym => g)
+        t1 = Ticket.create!(:name => "Shelby Theisen", :floor => "bottom", :user => user, :gym => g)
         visit('/')
-        expect(page).to have_content 'Position in Queue: ' + t1.get_position.to_s
+        expect(page).to have_content "You are currently in position " + t1.get_position_bottom.to_s + " for the " + t1.floor + " floor queue."
     end
     
     scenario "when a user is not signed in" do
@@ -21,14 +21,14 @@ feature "Visiting the home page" do
         user = User.create!(:email => 'test@example.com', :password => 'f4k3p455w0rd')
         login_as(user, :scope => :user)
         visit('/')
-        expect(page).not_to have_content 'Position in Queue: '
+        expect(page).not_to have_content 'You are currently in position'
     end
     
      scenario "when an admin is signed" do
         user = User.create!(:email => 'test@example.com', :password => 'f4k3p455w0rd', :admin => true)
         login_as(user, :scope => :user)
         visit('/')
-        expect(page).not_to have_content 'Position in Queue: '
+        expect(page).not_to have_content 'You are currently in position'
     end
     
     

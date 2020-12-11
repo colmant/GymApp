@@ -4,26 +4,29 @@ class Ticket < ApplicationRecord
     
     validates :name, presence: true, format: { with: /\A[A-Z][a-z]+\s[A-Z][a-z]+\z/, message: "must include both first and last, separated by a space and properly capitalized" }
     
-    @@queue = Ticket.order(:created_at).to_a
+    @@queueTop = Ticket.where('floor = ?', 'top').order(:created_at).to_a
+    @@queueBottom = Ticket.where('floor = ?', 'bottom').order(:created_at).to_a
     
-    cattr_accessor :queue
+    cattr_accessor :queueTop
+    cattr_accessor :queueBottom
     
-    def not_present?
-        Ticket.find_by(user: User.current).nil?
-    end
-    
-    def get_position
+    def get_position_top
         if (User.current.admin)
-            @@queue.index(self) + 1
+            @@queueTop.index(self) + 1
         else
             @ticket = Ticket.find_by(user: User.current)
-            @@queue.index(@ticket) + 1
+            @@queueTop.index(@ticket) + 1
         end
     end
     
-    # def get_position_for_queue
-    #     @@queue.index(self) + 1
-    # end
+    def get_position_bottom
+        if (User.current.admin)
+            @@queueBottom.index(self) + 1
+        else
+            @ticket = Ticket.find_by(user: User.current)
+            @@queueBottom.index(@ticket) + 1
+        end
+    end
 
 
 end

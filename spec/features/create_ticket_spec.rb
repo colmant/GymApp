@@ -18,7 +18,7 @@ feature "Creating a ticket" do
         visit(new_ticket_path)
         fill_in 'Name', with: 'Shelby Theisen'
         select('Top', from: 'Floor')
-        click_button 'Create new Ticket'
+        click_button 'Submit Ticket'
         expect(page).to have_content 'New ticket for Shelby Theisen created'
         expect(page).to have_current_path('/')
     end
@@ -27,10 +27,11 @@ feature "Creating a ticket" do
         user = User.create!(:email => 'test@example.com', :password => 'f4k3p455w0rd')
         login_as(user, :scope => :user)
         g = Gym.find_by(name: "Trudy")
-        t1 = Ticket.create!(:name => "Shelby Theisen", :floor => "Bottom", :user => user, :gym => g)
+        t1 = Ticket.create!(:name => "Shelby Theisen", :floor => "bottom", :user => user, :gym => g)
+        Ticket.queueBottom << t1
         visit(new_ticket_path)
-        expect(page).to have_content 'You have already submitted a ticket for the queue.'
-        expect(page).to have_content 'Your current position in the queue is: ' + t1.get_position.to_s
+        expect(page).to have_content 'Looks like you are already waiting in the bottom floor queue!'
+        expect(page).to have_content 'You are currently in position ' + t1.get_position_bottom.to_s
         expect(page).to have_current_path(new_ticket_path)
     end
     
@@ -38,7 +39,7 @@ feature "Creating a ticket" do
         user = User.create!(:email => 'test2@example.com', :password => 'fakepw')
         login_as(user, :scope => :user)
         visit(new_ticket_path)
-        click_button 'Create new Ticket'
+        click_button 'Submit Ticket'
         expect(page).to have_content 'Error creating new ticket: Name can\'t be blank, Name must include both first and last, separated by a space and properly capitalized'
         expect(page).to have_current_path(new_ticket_path)
     end
@@ -48,11 +49,11 @@ feature "Creating a ticket" do
         login_as(user, :scope => :user)
         visit(new_ticket_path)
         fill_in 'Name', with: 'joe j'
-        click_button 'Create new Ticket'
+        click_button 'Submit Ticket'
         expect(page).to have_content 'Error creating new ticket: Name must include both first and last, separated by a space and properly capitalized'
         expect(page).to have_current_path(new_ticket_path)
         fill_in 'Name', with: 'joe'
-        click_button 'Create new Ticket'
+        click_button 'Submit Ticket'
         expect(page).to have_content 'Error creating new ticket: Name must include both first and last, separated by a space and properly capitalized'
         expect(page).to have_current_path(new_ticket_path)
     end

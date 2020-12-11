@@ -1,0 +1,38 @@
+<div id="title">
+  Log In
+</div>
+<h4>
+  Please provide your login information to join the queue for Trudy Fitness Center.
+</h4>
+<h4>
+  If you have already submitted a ticket for the queue, please log in to view your current position.
+</h4>
+<div id="container">
+  <div id="login">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+    
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+    
+      <% if devise_mapping.rememberable? %>
+        <div class="remember">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+    
+      <div class="actions">
+        <%= f.submit "Log In", :class => "button" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<h4>
+  <i>New to this site? <%= render "devise/shared/links" %></i>
+</h4>
