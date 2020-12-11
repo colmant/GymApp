@@ -1,9 +1,11 @@
-
+<div id="title">
+  Admin Page
+</div>
 <br>
-<h3>Update Occupancy Values</h3>
+<h2><strong>Occupancy Values</strong></h2>
 <br>
 <table class = "center_table">
-  <tr class = "center_table">
+  <tr>
     <td class="occupancy">Current Top Floor Occupancy:  <strong class="num"><%= @gym.top_floor_occupancy %></strong></td>
     <td>
       
@@ -26,55 +28,88 @@
   </tr>
 </table>
 <br>
-<div class="row">
-    <div class="col-md">
-      <h3>Trudy Fitness Queue</h3>
-    </div>
-</div>
 <br>
-<% unless @tickets.first.nil? %>
-  <button class="button" id="bottom_plus">
-    <%= link_to("Admit new gym user", @tickets.first, method: :delete) %>
-  </button>
-<% end %>
-<table class="table" id="queue">
-  <thead class="thead-light">
-    <tr>
-      <th>Position</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Floor</th>
-      <th>Time</th>
-      <th>UserID</th>
-      <th>Gym</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @tickets.each do |t| %>
-      <tr>
-        <td>
-          <%= t.get_position %>
-        </td>
-        <td>
-          <%= t.name %>
-        </td>
-        <td>
-          <%= t.user.email %>
-        </td>
-        <td>
-          <%= t.floor %>
-        </td>
-        <td>
-          <%= t.created_at %>
-        </td>
-        <td>
-          <%= t.user_id %>
-        </td>
-        <td>
-          <%= t.gym.id %>
-        </td>
-      </tr>
+<br>
+<div id="container">
+  <div class="d-flex justify-content-center">
+    <div class="title-button">
+      <h2><strong>Top Floor Queue</strong></h2>
+      <% unless Ticket.queueTop.empty? %>
+        <button class="button" id="admit">
+          <%= link_to("Admit to Top", @ticketsTop.first, method: :delete) %>
+        </button>
+      <% end %>
+    </div>
+    <div class="title-button">
+       <h2><strong>Bottom Floor Queue</strong></h2>
+    <% unless Ticket.queueBottom.empty? %>
+      <button class="button" id="admit">
+        <%= link_to("Admit to Bottom", @ticketsBottom.first, method: :delete) %>
+      </button>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
+
+<div id = "container">
+  <div class="d-flex justify-content-center">
+    <table class="table" id="queue">
+      <thead>
+        <tr>
+          <th>Position</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @ticketsTop.each do |t| %>
+          <tr>
+            <td class="position">
+              <%= t.get_position_top %>
+            </td>
+            <td>
+              <%= t.name %>
+            </td>
+            <td>
+              <%= t.user.email %>
+            </td>
+            <td>
+              <%= t.created_at.strftime("at %I:%M %P") %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+    <table class="table" id="queue">
+      <thead class="thead">
+        <tr>
+          <th>Position</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @ticketsBottom.each do |t| %>
+          <tr>
+            <td class="position">
+              <%= t.get_position_bottom %>
+            </td>
+            <td>
+              <%= t.name %>
+            </td>
+            <td>
+              <%= t.user.email %>
+            </td>
+            <td>
+              <%= t.created_at.strftime("at %I:%M %P") %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 

@@ -18,16 +18,13 @@ Gym.delete_all
 Ticket.delete_all
 
 g = Gym.create!(:name => "Trudy", :top_floor_occupancy => 10, :bottom_floor_occupancy => 15, :top_floor_capacity => 25, :bottom_floor_capacity => 20, :wait_top_floor => 0, :wait_bottom_floor => 0)
-#y = Gym.create!(:name => "notTrudyS", :top_floor_occupancy => 0, :bottom_floor_occupancy => 0, :top_floor_capacity => 25, :bottom_floor_capacity => 20, :wait_top_floor => 0, :wait_bottom_floor => 0)
 Ticket.create!(:name => "Shelby Theisen", :floor => "top", :user => userlist[1], :gym => g)
 Ticket.create!(:name => "Jesse Jacob", :floor => "bottom", :user => userlist[2], :gym => g)
 Ticket.create!(:name => "Mickey Sacks", :floor => "top", :user => userlist[3], :gym => g)
-#y.tickets.create!(:name => "Nick Austin", :floor => "top", :user => userlist[4])
 
 g.add_wait_top_floor()
 g.add_wait_top_floor()
 g.add_wait_bottom_floor()
 
-#ticketlist2 << Ticket.create!(:name => "Nick Austin", :floor => "bottom", :user => userlist[4],:gym => y)
 
 

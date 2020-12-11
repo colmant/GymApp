@@ -1,0 +1,22 @@
+<% if resource.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= I18n.t("errors.messages.not_saved",
+                 count: resource.errors.count,
+                 resource: resource.class.model_name.human.downcase)
+       %>
+    </h2>
+    <ul>
+      <% resource.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<!--We attempted to reformat this error message display but could not figure it out. Sometimes the flash would -->
+<!--display, sometimes it wouldn't.-->
+<!--<% if resource.errors.any? %>-->
+<!--  <% errmsg = resource.errors.full_messages.join(", ") %>-->
+<!--  <%= flash[:alert] = "Error creating new account: #{errmsg}" %>-->
+<!--<% end %>-->

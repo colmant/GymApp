@@ -2,7 +2,6 @@
 //
 h3 {
   font-family: 'Marcellus SC', serif;
-  font-weight: 200;
   margin: 0;
   padding:  0;
   text-align: center;
@@ -14,16 +13,22 @@ p {
 }
 
 button {
- display:inline-block;
- padding: 0.2em 1.45em;
+ display: inline-flex;
+ padding-left: 20px;
+ padding-right: 20px;
  margin: 0.1em;
  border: 0.15em solid #CCCCCC;
- font-family:'Segoe UI','Roboto', sans-serif;
  font-weight: 400;
  background-color: #CCCCCC;
  text-align: center;
- position: relative;
  text-decoration: none;
+ align-items: center;
+}
+
+#admit {
+ float: left;
+ margin-left: 20px;
+ font-size: 20px;
 }
 
 button a:link, .button a:visited, .button a:hover, .button a:active {
@@ -37,7 +42,6 @@ button:hover{
 }
 
 .occupancy{
- font-family:'Segoe UI','Roboto', sans-serif;
  font-weight: 400;
  font-size: 30px;
  text-align: right;
@@ -54,13 +58,81 @@ strong{
  margin-left: auto;
  margin-right: auto;
  border: 1px solid black;
- 
+ line-height: 50px;
 }
 
-#top_plus, #top_minus, #bottom_plus, #bottom_minus {
- font-size: 20px; 
+#top_plus, #bottom_plus, #bottom_minus {
+ font-size: 50px; 
 }
 
+#top_minus, #bottom_minus {
+ font-size: 55px;
+ padding-left: 23px;
+ padding-right: 23px;
+}
 
+.table {
+ margin: 30px;
+}
 
+.table, th, tr {
+ border: 1px solid black;
+ font-size: 20px;
+}
 
+.title-button {
+ width: 50%;
+ display: flex;
+ justify-content: center;
+}
+
+.table tr:nth-child(even) {
+ background: #e6f3ff;
+}
+
+.table tr:nth-child(odd) {
+ background: #FFF;
+}
+
+th {
+ background: #821019;
+ color: white;
+}
+
+.button {
+ display: inline-flex;
+ padding-left: 20px;
+ padding-right: 20px;
+ margin: 0.1em;
+ border: 0.15em solid #CCCCCC;
+ font-weight: 400;
+ font-size: 23px;
+ background-color: #CCCCCC;
+ text-align: center;
+ text-decoration: none;
+ align-items: center;
+}
+
+.button:hover{
+ border-color:#7a7a7a;
+ background-color:#efeff5;
+}
+
+.position {
+ font-weight: bold;
+}
+
+.submit-ticket {
+ padding-right: 15px;
+}
+
+#create {
+ background-color: rgba(0,0,0,0.8);
+ border-radius: 30px;
+ width: 45%;
+ height: 270px;
+ margin-top: 30px;
+ margin-bottom: 30px;
+ margin-left: auto;
+ margin-right: auto;
+}

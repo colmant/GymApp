@@ -1,6 +1,6 @@
 class Gym < ApplicationRecord
     has_many :tickets
-    validate :check_record, on: :create #please not that validate in this case is singular
+    validate :check_record, on: :create 
 
     def check_record
         if Gym.all.count === 1
@@ -10,20 +10,21 @@ class Gym < ApplicationRecord
     
     def check_tickets
         @gym = Gym.find_by(name: "Trudy")
-        tickets = @gym.tickets
         
-        tickets.each do |t|
-            if t.not_present? == false
-                return t.get_position
+        if @gym.tickets.find_by(user: User.current).nil?
+            return false
+        else
+            myTicket = @gym.tickets.find_by(user: User.current)
+            if (myTicket.floor == "top")
+                return myTicket.get_position_top
+            else
+                return myTicket.get_position_bottom
             end
         end
-        return false
     end
-   
     
     def add_top_floor
         self.top_floor_occupancy += 1 if self.top_floor_occupancy < 25
-        #self.wait_top_floor += 1 if self.top_floor_occupancy >= 25
         self.save
     end
     
@@ -34,7 +35,6 @@ class Gym < ApplicationRecord
     
     def add_bottom_floor
         self.bottom_floor_occupancy += 1 if self.bottom_floor_occupancy < 20
-        #self.wait_bottom_floor += 1 if self.bottom_floor_occupancy >= 20
         self.save
     end
     
