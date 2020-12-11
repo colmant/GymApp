@@ -13,6 +13,7 @@ feature "When an admin is signed in," do
         g = Gym.find_by(name: "Trudy")
         t1 = Ticket.create!(:name => "Shelby Theisen", :floor => "top", :user => user1, :gym => g)
         t2 = Ticket.create!(:name => "Jesse Jacob", :floor => "top", :user => user2, :gym => g)
+        Ticket.queueTop.clear
         Ticket.queueTop << t1
         Ticket.queueTop << t2
         Ticket.queueBottom.clear

@@ -17,14 +17,13 @@ class TicketsController < ApplicationController
         @ticket.user = current_user
         @ticket.gym = Gym.find_by(name: "Trudy")
         if @ticket.save
-            flash[:notice] = "New ticket for #{@ticket.name} created"
-            increase_wait(@ticket)
             flash[:notice] = "New ticket for #{@ticket.name} created for #{@ticket.floor} floor"
             increase_wait(@ticket)
             @ticket.floor == "top" ? (Ticket.queueTop << @ticket) : (Ticket.queueBottom << @ticket)
             redirect_to "/" and return
         else
-            flash[:alert] = "Failed to save new ticket"
+            errmsg = @ticket.errors.full_messages.join(", ")
+            flash[:alert] = "Error creating new ticket: #{errmsg}"
             redirect_to new_ticket_path and return
         end
     end
@@ -40,13 +39,10 @@ class TicketsController < ApplicationController
         redirect_to tickets_path and return
     end
 
-
-
-    
     private
   
     def ticket_params
-        params.require(:ticket).permit(:name, :email)
+        params.require(:ticket).permit(:name, :floor)
     end
     
     def increase_wait(t)
@@ -63,18 +59,6 @@ class TicketsController < ApplicationController
     
     def decrease_occupancy(t)
         t.floor == "top" ? t.gym.subtract_top_floor() : t.gym.subtract_bottom_floor()
-    end
-    
-    def increase_wait(t)
-        t.floor == "top" ? t.gym.add_wait_top_floor() : t.gym.add_wait_bottom_floor()
-    end
-    
-    def decrease_wait(t)
-        t.floor == "top" ? t.gym.subtract_wait_top_floor() : t.gym.subtract_wait_bottom_floor()
-    end
-    
-    def increase_occupancy(t)
-        t.floor == "top" ? t.gym.add_top_floor() : t.gym.add_bottom_floor()
     end
 
 end

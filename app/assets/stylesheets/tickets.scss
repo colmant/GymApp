@@ -31,7 +31,12 @@ button {
  font-size: 20px;
 }
 
-button a:link, .button a:visited, .button a:hover, .button a:active {
+.center_table a:link, .center-table a:visited, .center-table a:hover, .center-table a:active {
+ text-decoration: none;
+ color: black;
+}
+
+.button a:link, .button a:visited, .button a:hover, .button a:active {
  text-decoration: none;
  color: black;
 }
