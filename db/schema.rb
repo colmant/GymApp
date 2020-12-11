@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_07_223658) do
+ActiveRecord::Schema.define(version: 2020_12_11_175532) do
 
   create_table "gyms", force: :cascade do |t|
     t.integer "top_floor_occupancy"
@@ -28,11 +28,11 @@ ActiveRecord::Schema.define(version: 2020_12_07_223658) do
 
   create_table "tickets", force: :cascade do |t|
     t.string "name"
-    t.integer "gym_id"
-    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "floor"
+    t.integer "gym_id", null: false
+    t.integer "user_id", null: false
     t.index ["gym_id"], name: "index_tickets_on_gym_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2020_12_07_223658) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "gyms", "tickets", on_delete: :cascade
+  add_foreign_key "gyms", "tickets"
   add_foreign_key "tickets", "gyms"
   add_foreign_key "tickets", "users"
 end
