@@ -25,7 +25,7 @@ end
 # trendslisit << TrudyTrend.create!(:day_of_week => 'Saturday', :average_queue_time => '20.63', :average_queue_size => '0')
 
 
-User.delete_all
+# User.delete_all
 userlist = []
 userlist << User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "colgate13")
 userlist << User.create!(:email => "stheisen@colgate.edu", :password => "shelby")
@@ -33,8 +33,8 @@ userlist << User.create!(:email => "jjacob@colgate.edu", :password => "jessej")
 userlist << User.create!(:email => "msacks@colgate.edu", :password => "mickey")
 userlist << User.create!(:email => "naustin@colgate.edu", :password => "nick666")
 
-Gym.delete_all
-Ticket.delete_all
+# Gym.delete_all
+# Ticket.delete_all
 
 g = Gym.create!(:name => "Trudy", :top_floor_occupancy => 10, :bottom_floor_occupancy => 15, :top_floor_capacity => 25, :bottom_floor_capacity => 20, :wait_top_floor => 0, :wait_bottom_floor => 0)
 Ticket.create!(:name => "Shelby Theisen", :floor => "top", :user => userlist[1], :gym => g)
