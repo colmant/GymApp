@@ -17,7 +17,7 @@
           null,
           null,
           1,
-          80,
+          82,
           null,
           null,
           null
@@ -139,7 +139,7 @@
           1,
           null,
           1,
-          80,
+          82,
           null,
           null
         ]
@@ -203,6 +203,43 @@
           null,
           1,
           6,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/ubuntu/environment/GymApp/app/controllers/trudy_trends_controller.rb": {
+        "lines": [
+          null,
+          1,
+          1,
+          null,
+          2,
+          null,
+          2,
+          2,
+          2,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
           null,
           null,
           1,
@@ -320,7 +357,7 @@
       "/home/ubuntu/environment/GymApp/app/models/trudy_trend.rb": {
         "lines": [
           1,
-          null,
+          1,
           1,
           0,
           0,
@@ -338,16 +375,10 @@
           1,
           0,
           null,
-          null
-        ]
-      },
-      "/home/ubuntu/environment/GymApp/app/models/trudy_trends_floor.rb": {
-        "lines": [
-          1,
           null
         ]
       }
     },
-    "timestamp": 1607663339
+    "timestamp": 1607676792
   }
 }
