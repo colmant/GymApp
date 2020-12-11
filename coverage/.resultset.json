@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/ubuntu/environment/project/GymApp/app/models/user.rb": {
+      "/home/ubuntu/environment/GymApp/app/models/user.rb": {
         "lines": [
           1,
           1,
@@ -17,38 +17,38 @@
           null,
           null,
           1,
-          80,
+          82,
           null,
           null,
           null
         ]
       },
-      "/home/ubuntu/environment/project/GymApp/app/models/application_record.rb": {
+      "/home/ubuntu/environment/GymApp/app/models/application_record.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/home/ubuntu/environment/project/GymApp/app/helpers/application_helper.rb": {
+      "/home/ubuntu/environment/GymApp/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/ubuntu/environment/project/GymApp/app/helpers/charts_helper.rb": {
+      "/home/ubuntu/environment/GymApp/app/helpers/charts_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/ubuntu/environment/project/GymApp/app/helpers/tickets_helper.rb": {
+      "/home/ubuntu/environment/GymApp/app/helpers/tickets_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/ubuntu/environment/project/GymApp/app/helpers/trudy_trends_helper.rb": {
+      "/home/ubuntu/environment/GymApp/app/helpers/trudy_trends_helper.rb": {
         "lines": [
           1,
           null,
@@ -88,7 +88,7 @@
           null
         ]
       },
-      "/home/ubuntu/environment/project/GymApp/app/controllers/gyms_controller.rb": {
+      "/home/ubuntu/environment/GymApp/app/controllers/gyms_controller.rb": {
         "lines": [
           1,
           null,
@@ -133,18 +133,18 @@
           null
         ]
       },
-      "/home/ubuntu/environment/project/GymApp/app/controllers/application_controller.rb": {
+      "/home/ubuntu/environment/GymApp/app/controllers/application_controller.rb": {
         "lines": [
           1,
           1,
           null,
           1,
-          80,
+          82,
           null,
           null
         ]
       },
-      "/home/ubuntu/environment/project/GymApp/app/controllers/tickets_controller.rb": {
+      "/home/ubuntu/environment/GymApp/app/controllers/tickets_controller.rb": {
         "lines": [
           1,
           1,
@@ -212,7 +212,44 @@
           null
         ]
       },
-      "/home/ubuntu/environment/project/GymApp/app/models/gym.rb": {
+      "/home/ubuntu/environment/GymApp/app/controllers/trudy_trends_controller.rb": {
+        "lines": [
+          null,
+          1,
+          1,
+          null,
+          2,
+          null,
+          2,
+          2,
+          2,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/ubuntu/environment/GymApp/app/models/gym.rb": {
         "lines": [
           1,
           1,
@@ -281,7 +318,7 @@
           null
         ]
       },
-      "/home/ubuntu/environment/project/GymApp/app/models/ticket.rb": {
+      "/home/ubuntu/environment/GymApp/app/models/ticket.rb": {
         "lines": [
           1,
           1,
@@ -317,10 +354,10 @@
           null
         ]
       },
-      "/home/ubuntu/environment/project/GymApp/app/models/trudy_trend.rb": {
+      "/home/ubuntu/environment/GymApp/app/models/trudy_trend.rb": {
         "lines": [
           1,
-          null,
+          1,
           1,
           0,
           0,
@@ -338,16 +375,10 @@
           1,
           0,
           null,
-          null
-        ]
-      },
-      "/home/ubuntu/environment/project/GymApp/app/models/trudy_trends_floor.rb": {
-        "lines": [
-          1,
           null
         ]
       }
     },
-    "timestamp": 1607662257
+    "timestamp": 1607676792
   }
 }
