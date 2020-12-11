@@ -74,7 +74,7 @@
               <%= t.user.email %>
             </td>
             <td>
-              <%= t.created_at.strftime("at %I:%M %P") %>
+              <%= t.created_at.localtime("-05:00").strftime("at %I:%M %P") %>
             </td>
           </tr>
         <% end %>
@@ -103,7 +103,7 @@
               <%= t.user.email %>
             </td>
             <td>
-              <%= t.created_at.strftime("at %I:%M %P") %>
+              <%= t.created_at.localtime("-05:00").strftime("at %I:%M %P") %>
             </td>
           </tr>
         <% end %>
