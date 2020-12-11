@@ -8,27 +8,22 @@
   <tr>
     <td class="occupancy">Current Top Floor Occupancy:  <strong class="num"><%= @gym.top_floor_occupancy %></strong></td>
     <td>
-      <button class="button" id="top_plus">
-        <%= link_to("+", gym_path(:id => 3), method: :patch) %>
-      </button>
+      
+        <%= link_to("<button class='button' id='top_plus'>+</button>".html_safe, gym_path(:id => 3), method: :patch, class: 'plus_top') %>
+      
     </td>
     <td>
-      <button class="button" id="top_minus">
-        <%= link_to("-", gym_path(:id => 1), method: :patch) %>
-      </button>
+        <%= link_to("<button class='button' id='top_minus'>-</button>".html_safe, gym_path(:id => 1), method: :patch, class: 'minus_top') %>
+      
     </td>
   </tr>
   <tr>
     <td class="occupancy">Current Bottom Floor Occupancy:  <strong class="num"><%= @gym.bottom_floor_occupancy %></strong></td>
     <td>
-      <button class="button" id="bottom_plus">
-        <%= link_to("+", gym_path(:id => 4), method: :patch) %>
-      </button>
+        <%= link_to("<button class='button' id='bottom_plus'>+</button>".html_safe, gym_path(:id => 4), method: :patch, class: 'plus_bottom') %>
     </td>
     <td>
-      <button class="button" id="bottom_minus">
-        <%= link_to("-", gym_path(:id => 2), method: :patch) %>
-      </button>
+        <%= link_to("<button class='button' id='bottom_minus'>-</button>".html_safe, gym_path(:id => 2), method: :patch, class: 'minus_bottom') %>
     </td>
   </tr>
 </table>
